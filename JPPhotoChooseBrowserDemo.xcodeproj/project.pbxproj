@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5E050B01F9E10C100190698 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050AF1F9E10C100190698 /* AppDelegate.m */; };
+		F5E050B31F9E10C100190698 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050B21F9E10C100190698 /* ViewController.m */; };
+		F5E050B61F9E10C100190698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E050B41F9E10C100190698 /* Main.storyboard */; };
+		F5E050B81F9E10C100190698 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5E050B71F9E10C100190698 /* Assets.xcassets */; };
+		F5E050BB1F9E10C100190698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E050B91F9E10C100190698 /* LaunchScreen.storyboard */; };
+		F5E050BE1F9E10C100190698 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050BD1F9E10C100190698 /* main.m */; };
+		F5E050E31F9E10D600190698 /* JPChoosePicView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050C51F9E10D600190698 /* JPChoosePicView.m */; };
+		F5E050E51F9E11B900190698 /* JPPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050D31F9E10D600190698 /* JPPhotoManager.m */; };
+		F5E050E61F9E11B900190698 /* BaseConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050C81F9E10D600190698 /* BaseConst.m */; };
+		F5E050E71F9E11B900190698 /* JPPhotoGroupListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050CB1F9E10D600190698 /* JPPhotoGroupListController.m */; };
+		F5E050E81F9E11B900190698 /* JPPhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050CD1F9E10D600190698 /* JPPhotoListController.m */; };
+		F5E050E91F9E11B900190698 /* JPPhotoShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */; };
+		F5E050EA1F9E11B900190698 /* JPScreenPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050D11F9E10D600190698 /* JPScreenPhotoController.m */; };
+		F5E050EB1F9E11B900190698 /* JPPhotoKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */; };
+		F5E050EC1F9E11B900190698 /* JPPhotoGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050D91F9E10D600190698 /* JPPhotoGroupModel.m */; };
+		F5E050ED1F9E11B900190698 /* JPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050DB1F9E10D600190698 /* JPPhotoModel.m */; };
+		F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050DE1F9E10D600190698 /* JPPhotoCollectionViewCell.m */; };
+		F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050E01F9E10D600190698 /* JPPhotoGroupCell.m */; };
+		F5E050F01F9E11B900190698 /* UIView+JP_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050E21F9E10D600190698 /* UIView+JP_Frame.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5E050AB1F9E10C100190698 /* JPPhotoChooseBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPPhotoChooseBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E050AE1F9E10C100190698 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F5E050AF1F9E10C100190698 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5E050B11F9E10C100190698 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F5E050B21F9E10C100190698 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F5E050B51F9E10C100190698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F5E050B71F9E10C100190698 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5E050BA1F9E10C100190698 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5E050BC1F9E10C100190698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5E050BD1F9E10C100190698 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5E050C41F9E10D600190698 /* JPChoosePicView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPChoosePicView.h; sourceTree = "<group>"; };
+		F5E050C51F9E10D600190698 /* JPChoosePicView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPChoosePicView.m; sourceTree = "<group>"; };
+		F5E050C71F9E10D600190698 /* BaseConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseConst.h; sourceTree = "<group>"; };
+		F5E050C81F9E10D600190698 /* BaseConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseConst.m; sourceTree = "<group>"; };
+		F5E050CA1F9E10D600190698 /* JPPhotoGroupListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoGroupListController.h; sourceTree = "<group>"; };
+		F5E050CB1F9E10D600190698 /* JPPhotoGroupListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoGroupListController.m; sourceTree = "<group>"; };
+		F5E050CC1F9E10D600190698 /* JPPhotoListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoListController.h; sourceTree = "<group>"; };
+		F5E050CD1F9E10D600190698 /* JPPhotoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoListController.m; sourceTree = "<group>"; };
+		F5E050CE1F9E10D600190698 /* JPPhotoShowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoShowController.h; sourceTree = "<group>"; };
+		F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoShowController.m; sourceTree = "<group>"; };
+		F5E050D01F9E10D600190698 /* JPScreenPhotoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPScreenPhotoController.h; sourceTree = "<group>"; };
+		F5E050D11F9E10D600190698 /* JPScreenPhotoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPScreenPhotoController.m; sourceTree = "<group>"; };
+		F5E050D21F9E10D600190698 /* JPPhotoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoManager.h; sourceTree = "<group>"; };
+		F5E050D31F9E10D600190698 /* JPPhotoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoManager.m; sourceTree = "<group>"; };
+		F5E050D51F9E10D600190698 /* JPPhotoKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoKitManager.h; sourceTree = "<group>"; };
+		F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoKitManager.m; sourceTree = "<group>"; };
+		F5E050D81F9E10D600190698 /* JPPhotoGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoGroupModel.h; sourceTree = "<group>"; };
+		F5E050D91F9E10D600190698 /* JPPhotoGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoGroupModel.m; sourceTree = "<group>"; };
+		F5E050DA1F9E10D600190698 /* JPPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoModel.h; sourceTree = "<group>"; };
+		F5E050DB1F9E10D600190698 /* JPPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoModel.m; sourceTree = "<group>"; };
+		F5E050DD1F9E10D600190698 /* JPPhotoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		F5E050DE1F9E10D600190698 /* JPPhotoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		F5E050DF1F9E10D600190698 /* JPPhotoGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoGroupCell.h; sourceTree = "<group>"; };
+		F5E050E01F9E10D600190698 /* JPPhotoGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoGroupCell.m; sourceTree = "<group>"; };
+		F5E050E11F9E10D600190698 /* UIView+JP_Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JP_Frame.h"; sourceTree = "<group>"; };
+		F5E050E21F9E10D600190698 /* UIView+JP_Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JP_Frame.m"; sourceTree = "<group>"; };
+		F5E050E41F9E10DF00190698 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5E050A81F9E10C100190698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5E050A21F9E10C100190698 = {
+			isa = PBXGroup;
+			children = (
+				F5E050AD1F9E10C100190698 /* JPPhotoChooseBrowserDemo */,
+				F5E050AC1F9E10C100190698 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5E050AC1F9E10C100190698 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050AB1F9E10C100190698 /* JPPhotoChooseBrowserDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5E050AD1F9E10C100190698 /* JPPhotoChooseBrowserDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050AE1F9E10C100190698 /* AppDelegate.h */,
+				F5E050AF1F9E10C100190698 /* AppDelegate.m */,
+				F5E050B11F9E10C100190698 /* ViewController.h */,
+				F5E050B21F9E10C100190698 /* ViewController.m */,
+				F5E050C41F9E10D600190698 /* JPChoosePicView.h */,
+				F5E050C51F9E10D600190698 /* JPChoosePicView.m */,
+				F5E050C61F9E10D600190698 /* JPPhotoChooseBrowser */,
+				F5E050B41F9E10C100190698 /* Main.storyboard */,
+				F5E050E41F9E10DF00190698 /* PrefixHeader.pch */,
+				F5E050B71F9E10C100190698 /* Assets.xcassets */,
+				F5E050B91F9E10C100190698 /* LaunchScreen.storyboard */,
+				F5E050BC1F9E10C100190698 /* Info.plist */,
+				F5E050BD1F9E10C100190698 /* main.m */,
+			);
+			path = JPPhotoChooseBrowserDemo;
+			sourceTree = "<group>";
+		};
+		F5E050C61F9E10D600190698 /* JPPhotoChooseBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050D21F9E10D600190698 /* JPPhotoManager.h */,
+				F5E050D31F9E10D600190698 /* JPPhotoManager.m */,
+				F5E050C71F9E10D600190698 /* BaseConst.h */,
+				F5E050C81F9E10D600190698 /* BaseConst.m */,
+				F5E050C91F9E10D600190698 /* Controllers */,
+				F5E050D41F9E10D600190698 /* Managers */,
+				F5E050D71F9E10D600190698 /* Models */,
+				F5E050DC1F9E10D600190698 /* Views */,
+			);
+			path = JPPhotoChooseBrowser;
+			sourceTree = "<group>";
+		};
+		F5E050C91F9E10D600190698 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050CA1F9E10D600190698 /* JPPhotoGroupListController.h */,
+				F5E050CB1F9E10D600190698 /* JPPhotoGroupListController.m */,
+				F5E050CC1F9E10D600190698 /* JPPhotoListController.h */,
+				F5E050CD1F9E10D600190698 /* JPPhotoListController.m */,
+				F5E050CE1F9E10D600190698 /* JPPhotoShowController.h */,
+				F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */,
+				F5E050D01F9E10D600190698 /* JPScreenPhotoController.h */,
+				F5E050D11F9E10D600190698 /* JPScreenPhotoController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F5E050D41F9E10D600190698 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050D51F9E10D600190698 /* JPPhotoKitManager.h */,
+				F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F5E050D71F9E10D600190698 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050D81F9E10D600190698 /* JPPhotoGroupModel.h */,
+				F5E050D91F9E10D600190698 /* JPPhotoGroupModel.m */,
+				F5E050DA1F9E10D600190698 /* JPPhotoModel.h */,
+				F5E050DB1F9E10D600190698 /* JPPhotoModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5E050DC1F9E10D600190698 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5E050DD1F9E10D600190698 /* JPPhotoCollectionViewCell.h */,
+				F5E050DE1F9E10D600190698 /* JPPhotoCollectionViewCell.m */,
+				F5E050DF1F9E10D600190698 /* JPPhotoGroupCell.h */,
+				F5E050E01F9E10D600190698 /* JPPhotoGroupCell.m */,
+				F5E050E11F9E10D600190698 /* UIView+JP_Frame.h */,
+				F5E050E21F9E10D600190698 /* UIView+JP_Frame.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5E050AA1F9E10C100190698 /* JPPhotoChooseBrowserDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5E050C11F9E10C100190698 /* Build configuration list for PBXNativeTarget "JPPhotoChooseBrowserDemo" */;
+			buildPhases = (
+				F5E050A71F9E10C100190698 /* Sources */,
+				F5E050A81F9E10C100190698 /* Frameworks */,
+				F5E050A91F9E10C100190698 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JPPhotoChooseBrowserDemo;
+			productName = JPPhotoChooseBrowserDemo;
+			productReference = F5E050AB1F9E10C100190698 /* JPPhotoChooseBrowserDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5E050A31F9E10C100190698 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = dong;
+				TargetAttributes = {
+					F5E050AA1F9E10C100190698 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F5E050A61F9E10C100190698 /* Build configuration list for PBXProject "JPPhotoChooseBrowserDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5E050A21F9E10C100190698;
+			productRefGroup = F5E050AC1F9E10C100190698 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5E050AA1F9E10C100190698 /* JPPhotoChooseBrowserDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5E050A91F9E10C100190698 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E050BB1F9E10C100190698 /* LaunchScreen.storyboard in Resources */,
+				F5E050B81F9E10C100190698 /* Assets.xcassets in Resources */,
+				F5E050B61F9E10C100190698 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5E050A71F9E10C100190698 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E050E51F9E11B900190698 /* JPPhotoManager.m in Sources */,
+				F5E050E61F9E11B900190698 /* BaseConst.m in Sources */,
+				F5E050E71F9E11B900190698 /* JPPhotoGroupListController.m in Sources */,
+				F5E050E81F9E11B900190698 /* JPPhotoListController.m in Sources */,
+				F5E050E91F9E11B900190698 /* JPPhotoShowController.m in Sources */,
+				F5E050EA1F9E11B900190698 /* JPScreenPhotoController.m in Sources */,
+				F5E050EB1F9E11B900190698 /* JPPhotoKitManager.m in Sources */,
+				F5E050EC1F9E11B900190698 /* JPPhotoGroupModel.m in Sources */,
+				F5E050ED1F9E11B900190698 /* JPPhotoModel.m in Sources */,
+				F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */,
+				F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */,
+				F5E050F01F9E11B900190698 /* UIView+JP_Frame.m in Sources */,
+				F5E050B31F9E10C100190698 /* ViewController.m in Sources */,
+				F5E050BE1F9E10C100190698 /* main.m in Sources */,
+				F5E050E31F9E10D600190698 /* JPChoosePicView.m in Sources */,
+				F5E050B01F9E10C100190698 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5E050B41F9E10C100190698 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E050B51F9E10C100190698 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F5E050B91F9E10C100190698 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E050BA1F9E10C100190698 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5E050BF1F9E10C100190698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F5E050C01F9E10C100190698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5E050C21F9E10C100190698 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U37X4645WQ;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JPPhotoChooseBrowserDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = JPPhotoChooseBrowserDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.djp.JPPhotoChooseBrowserDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5E050C31F9E10C100190698 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U37X4645WQ;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/JPPhotoChooseBrowserDemo/PrefixHeader.pch";
+				INFOPLIST_FILE = JPPhotoChooseBrowserDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.djp.JPPhotoChooseBrowserDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5E050A61F9E10C100190698 /* Build configuration list for PBXProject "JPPhotoChooseBrowserDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5E050BF1F9E10C100190698 /* Debug */,
+				F5E050C01F9E10C100190698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5E050C11F9E10C100190698 /* Build configuration list for PBXNativeTarget "JPPhotoChooseBrowserDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5E050C21F9E10C100190698 /* Debug */,
+				F5E050C31F9E10C100190698 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5E050A31F9E10C100190698 /* Project object */;
+}
