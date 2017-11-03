@@ -54,6 +54,7 @@
     if (!_selectBtn) {
         _selectBtn = [[UIButton alloc]init];
         [_selectBtn setBackgroundImage:[UIImage imageNamed:@"FriendsSendsPicturesSelectIcon_27x27_"] forState:UIControlStateNormal];
+        [_selectBtn setBackgroundImage:[UIImage imageNamed:@"FriendsSendsPicturesSelectIcon_27x27_"] forState:UIControlStateHighlighted];
         [_selectBtn setBackgroundImage:[UIImage imageNamed:@"FriendsSendsPicturesSelectYIcon_27x27_"] forState:UIControlStateSelected];
         [_selectBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [_selectBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
@@ -124,8 +125,9 @@
 
 - (void)clickSelectBtn{
     
-    if ([self.delegate respondsToSelector:@selector(thumbImageSeletedChooseIndexPath:)]) {
-        [self.delegate thumbImageSeletedChooseIndexPath:self.photoModel.indexPath];
+    
+    if ([self.delegate respondsToSelector:@selector(thumbImageSeletedChooseIndexPath:selectedBtn:)]) {
+        [self.delegate thumbImageSeletedChooseIndexPath:self.photoModel.indexPath selectedBtn:self.selectBtn];
     }
 }
 

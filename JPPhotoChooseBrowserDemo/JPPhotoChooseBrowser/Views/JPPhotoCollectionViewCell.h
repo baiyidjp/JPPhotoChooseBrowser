@@ -10,7 +10,7 @@
 
 @protocol JPPhotoCollectionViewCellDelegate <NSObject>
 
-- (void)thumbImageSeletedChooseIndexPath:(NSIndexPath *)indexPath;
+- (void)thumbImageSeletedChooseIndexPath:(NSIndexPath *)indexPath selectedBtn:(UIButton *)selectedBtn;
 
 @end
 

@@ -89,7 +89,7 @@
     layout.minimumInteritemSpacing = 5;
     CGFloat itemWH = (JP_SCREENWIDTH - (ROW_COUNT+1)*JP_KMARGIN/2)/ROW_COUNT;
     layout.itemSize = CGSizeMake(itemWH, itemWH);
-    photoCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(JP_KMARGIN/2, JP_KMARGIN/2, JP_SCREENWIDTH-JP_KMARGIN, JP_SCREENHEIGHT-44-JP_KMARGIN) collectionViewLayout:layout];
+    photoCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(JP_KMARGIN/2, JP_KMARGIN/2, JP_SCREENWIDTH-JP_KMARGIN, JP_SCREENHEIGHT-44-JP_KMARGIN-JP_HOME_INDICATOR_HEIGHT) collectionViewLayout:layout];
     photoCollectionView.delegate = self;
     photoCollectionView.dataSource = self;
     photoCollectionView.backgroundColor = [UIColor whiteColor];
@@ -101,14 +101,14 @@
     bottomView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:bottomView];
     
-    preViewBtn = [[UIButton alloc]initWithFrame:CGRectMake(JP_KMARGIN, 12, 40, 20)];
+    preViewBtn = [[UIButton alloc]initWithFrame:CGRectMake(JP_KMARGIN, JP_KMARGIN+JP_KMARGIN/2, 40, 20)];
     [preViewBtn setTitle:@"预览" forState:UIControlStateNormal];
     [preViewBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     [preViewBtn.titleLabel setFont:JP_FONTSIZE(15)];
     [preViewBtn addTarget:self action:@selector(preViewBtn) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:preViewBtn];
     
-    sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, bottomView.jp_h*0.5-15, 60, 30)];
+    sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, JP_KMARGIN, 60, 30)];
     [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sendBtn setBackgroundColor:[UIColor colorWithRed:0.000 green:0.411 blue:0.000 alpha:1.000]];
@@ -152,7 +152,7 @@
 }
 
 #pragma mark 点击选中按钮的代理
-- (void)thumbImageSeletedChooseIndexPath:(NSIndexPath *)indexPath {
+- (void)thumbImageSeletedChooseIndexPath:(NSIndexPath *)indexPath selectedBtn:(UIButton *)selectedBtn {
     
     JPPhotoModel *photoModel = [self.photoDataArray objectAtIndex:indexPath.item];
     
@@ -180,6 +180,15 @@
             [self.seletedPhotoIndexPathArray removeObject:indexPath];
             [self.seletedPhotoArray removeObject:photoModel];
         }
+        
+        CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        pulse.duration = 0.08;
+        pulse.repeatCount= 1;
+        pulse.autoreverses= YES;
+        pulse.fromValue= [NSNumber numberWithFloat:0.7];
+        pulse.toValue= [NSNumber numberWithFloat:1.3];
+        [[selectedBtn layer] addAnimation:pulse forKey:nil];
     }
 }
 

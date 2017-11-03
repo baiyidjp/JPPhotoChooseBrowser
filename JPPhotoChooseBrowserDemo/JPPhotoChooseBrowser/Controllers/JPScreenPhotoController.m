@@ -60,13 +60,14 @@
     [self.view addSubview:topView];
     
     
-    backBtn = [[UIButton alloc]initWithFrame:CGRectMake(JP_KMARGIN,topView.jp_h*0.5-15 , 15, 30)];
+    backBtn = [[UIButton alloc]initWithFrame:CGRectMake(JP_KMARGIN,topView.jp_h-30-17 , 15, 30)];
     [backBtn setBackgroundImage:[UIImage imageNamed:@"barbuttonicon_back_15x30_"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backToList) forControlEvents:UIControlEventTouchUpInside];
     [topView addSubview:backBtn];
     
-    selectBtn = [[UIButton alloc]initWithFrame:CGRectMake(topView.jp_w - 42-JP_KMARGIN, topView.jp_h*0.5-21, 42, 42)];
+    selectBtn = [[UIButton alloc]initWithFrame:CGRectMake(topView.jp_w - 42-JP_KMARGIN, topView.jp_h-42-11, 42, 42)];
     [selectBtn setBackgroundImage:[UIImage imageNamed:@"FriendsSendsPicturesSelectBigNIcon_42x42_"] forState:UIControlStateNormal];
+    [selectBtn setBackgroundImage:[UIImage imageNamed:@"FriendsSendsPicturesSelectBigNIcon_42x42_"] forState:UIControlStateHighlighted];
     [selectBtn setBackgroundImage:[UIImage imageNamed:@"FriendsSendsPicturesSelectBigYIcon_42x42_"] forState:UIControlStateSelected];
     [selectBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [selectBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
@@ -84,7 +85,7 @@
     bottomView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:bottomView];
     
-    sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, bottomView.jp_h*0.5-15, 60, 30)];
+    sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, JP_KMARGIN, 60, 30)];
     [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sendBtn setBackgroundColor:[UIColor colorWithRed:0.000 green:0.411 blue:0.000 alpha:1.000]];
@@ -193,6 +194,16 @@
         [self presentViewController:alertCtrl animated:YES completion:nil];
 
     }else {
+        //添加动画
+        CABasicAnimation*pulse = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        pulse.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        pulse.duration = 0.08;
+        pulse.repeatCount= 1;
+        pulse.autoreverses= YES;
+        pulse.fromValue= [NSNumber numberWithFloat:0.7];
+        pulse.toValue= [NSNumber numberWithFloat:1.3];
+        [[selectBtn layer] addAnimation:pulse forKey:nil];
+        
         photoModel.isSelect = !photoModel.isSelect;
         if (photoModel.isSelect) {
             photoModel.chooseIndex = self.seletedPhotoIndexPathArray.count+1;
