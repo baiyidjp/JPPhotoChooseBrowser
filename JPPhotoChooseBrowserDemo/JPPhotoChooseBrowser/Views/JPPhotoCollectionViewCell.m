@@ -9,6 +9,7 @@
 #import "JPPhotoCollectionViewCell.h"
 #import "JPPhotoModel.h"
 #import "UIView+JP_Frame.h"
+#import "BaseConst.h"
 
 @interface JPPhotoCollectionViewCell()
 

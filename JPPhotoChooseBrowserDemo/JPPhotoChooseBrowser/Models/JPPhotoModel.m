@@ -8,6 +8,7 @@
 
 #import "JPPhotoModel.h"
 #import <objc/runtime.h>
+#import "BaseConst.h"
 
 const char * kThumbImageKey = "kThumbImageKey";//缩略图
 const char * kFullScreenImageKey = "kFullScreenImageKey";//屏幕大小图

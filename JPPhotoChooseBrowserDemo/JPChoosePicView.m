@@ -7,7 +7,7 @@
 //
 
 #import "JPChoosePicView.h"
-#import "JPPhotoManager.h"
+#import "JPPhoto.h"
 
 @interface JPChoosePicView()<UICollectionViewDelegate,UICollectionViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JPPhotoManagerDelegate>
 /** addBtn */
@@ -134,7 +134,9 @@
     
     [alertCtrl addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        //启动图片选择器
         [[JPPhotoManager sharedPhotoManager] openPhotoListWithController:self.superViewController MaxImageCount:3-self.imageArray.count];
+        //设置代理
         [JPPhotoManager sharedPhotoManager].delegate = self;
     }]];
     [alertCtrl addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

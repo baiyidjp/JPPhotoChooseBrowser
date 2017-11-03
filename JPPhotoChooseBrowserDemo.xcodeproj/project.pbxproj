@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50505431FAC91E90041726C /* JPPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F50505421FAC91E90041726C /* JPPhotoManager.m */; };
 		F5E050B01F9E10C100190698 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050AF1F9E10C100190698 /* AppDelegate.m */; };
 		F5E050B31F9E10C100190698 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050B21F9E10C100190698 /* ViewController.m */; };
 		F5E050B61F9E10C100190698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E050B41F9E10C100190698 /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		F5E050BB1F9E10C100190698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E050B91F9E10C100190698 /* LaunchScreen.storyboard */; };
 		F5E050BE1F9E10C100190698 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050BD1F9E10C100190698 /* main.m */; };
 		F5E050E31F9E10D600190698 /* JPChoosePicView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050C51F9E10D600190698 /* JPChoosePicView.m */; };
-		F5E050E51F9E11B900190698 /* JPPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050D31F9E10D600190698 /* JPPhotoManager.m */; };
 		F5E050E71F9E11B900190698 /* JPPhotoGroupListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050CB1F9E10D600190698 /* JPPhotoGroupListController.m */; };
 		F5E050E81F9E11B900190698 /* JPPhotoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050CD1F9E10D600190698 /* JPPhotoListController.m */; };
 		F5E050E91F9E11B900190698 /* JPPhotoShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */; };
@@ -28,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F50505411FAC91D70041726C /* BaseConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseConst.h; sourceTree = "<group>"; };
+		F50505421FAC91E90041726C /* JPPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoManager.m; sourceTree = "<group>"; };
+		F50505441FAC926C0041726C /* JPPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoManager.h; sourceTree = "<group>"; };
+		F50505451FAC93030041726C /* JPPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhoto.h; sourceTree = "<group>"; };
 		F5E050AB1F9E10C100190698 /* JPPhotoChooseBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPPhotoChooseBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E050AE1F9E10C100190698 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5E050AF1F9E10C100190698 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,7 +44,6 @@
 		F5E050BD1F9E10C100190698 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F5E050C41F9E10D600190698 /* JPChoosePicView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPChoosePicView.h; sourceTree = "<group>"; };
 		F5E050C51F9E10D600190698 /* JPChoosePicView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPChoosePicView.m; sourceTree = "<group>"; };
-		F5E050C71F9E10D600190698 /* BaseConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseConst.h; sourceTree = "<group>"; };
 		F5E050CA1F9E10D600190698 /* JPPhotoGroupListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoGroupListController.h; sourceTree = "<group>"; };
 		F5E050CB1F9E10D600190698 /* JPPhotoGroupListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoGroupListController.m; sourceTree = "<group>"; };
 		F5E050CC1F9E10D600190698 /* JPPhotoListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoListController.h; sourceTree = "<group>"; };
@@ -49,8 +52,6 @@
 		F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoShowController.m; sourceTree = "<group>"; };
 		F5E050D01F9E10D600190698 /* JPScreenPhotoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPScreenPhotoController.h; sourceTree = "<group>"; };
 		F5E050D11F9E10D600190698 /* JPScreenPhotoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPScreenPhotoController.m; sourceTree = "<group>"; };
-		F5E050D21F9E10D600190698 /* JPPhotoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoManager.h; sourceTree = "<group>"; };
-		F5E050D31F9E10D600190698 /* JPPhotoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoManager.m; sourceTree = "<group>"; };
 		F5E050D51F9E10D600190698 /* JPPhotoKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoKitManager.h; sourceTree = "<group>"; };
 		F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoKitManager.m; sourceTree = "<group>"; };
 		F5E050D81F9E10D600190698 /* JPPhotoGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoGroupModel.h; sourceTree = "<group>"; };
@@ -116,9 +117,7 @@
 		F5E050C61F9E10D600190698 /* JPPhotoChooseBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				F5E050D21F9E10D600190698 /* JPPhotoManager.h */,
-				F5E050D31F9E10D600190698 /* JPPhotoManager.m */,
-				F5E050C71F9E10D600190698 /* BaseConst.h */,
+				F50505451FAC93030041726C /* JPPhoto.h */,
 				F5E050C91F9E10D600190698 /* Controllers */,
 				F5E050D41F9E10D600190698 /* Managers */,
 				F5E050D71F9E10D600190698 /* Models */,
@@ -145,6 +144,9 @@
 		F5E050D41F9E10D600190698 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F50505441FAC926C0041726C /* JPPhotoManager.h */,
+				F50505421FAC91E90041726C /* JPPhotoManager.m */,
+				F50505411FAC91D70041726C /* BaseConst.h */,
 				F5E050D51F9E10D600190698 /* JPPhotoKitManager.h */,
 				F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */,
 			);
@@ -246,7 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E050E51F9E11B900190698 /* JPPhotoManager.m in Sources */,
 				F5E050E71F9E11B900190698 /* JPPhotoGroupListController.m in Sources */,
 				F5E050E81F9E11B900190698 /* JPPhotoListController.m in Sources */,
 				F5E050E91F9E11B900190698 /* JPPhotoShowController.m in Sources */,
@@ -256,6 +257,7 @@
 				F5E050ED1F9E11B900190698 /* JPPhotoModel.m in Sources */,
 				F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */,
 				F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */,
+				F50505431FAC91E90041726C /* JPPhotoManager.m in Sources */,
 				F5E050F01F9E11B900190698 /* UIView+JP_Frame.m in Sources */,
 				F5E050B31F9E10C100190698 /* ViewController.m in Sources */,
 				F5E050BE1F9E10C100190698 /* main.m in Sources */,

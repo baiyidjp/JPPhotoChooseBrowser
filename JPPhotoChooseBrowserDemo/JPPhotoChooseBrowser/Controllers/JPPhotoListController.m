@@ -12,6 +12,7 @@
 #import "JPScreenPhotoController.h"
 #import "JPPhotoKitManager.h"
 #import "UIView+JP_Frame.h"
+#import "BaseConst.h"
 
 #define ROW_COUNT 4
 #define PHOTOCELL_ID @"JPPhotoCollectionViewCell"

@@ -9,6 +9,7 @@
 #import "JPPhotoShowController.h"
 #import "JPPhotoModel.h"
 #import "UIView+JP_Frame.h"
+#import "BaseConst.h"
 
 @interface JPPhotoShowController ()<UIScrollViewDelegate>
 

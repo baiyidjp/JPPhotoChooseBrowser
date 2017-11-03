@@ -10,6 +10,7 @@
 #import "JPPhotoModel.h"
 #import "JPPhotoShowController.h"
 #import "UIView+JP_Frame.h"
+#import "BaseConst.h"
 
 #define PHOTOCELL_ID @"UICollectionViewCell"
 

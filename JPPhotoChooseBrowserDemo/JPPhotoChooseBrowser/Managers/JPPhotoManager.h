@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 
 @protocol JPPhotoManagerDelegate <NSObject>
 
@@ -28,7 +28,7 @@
 @interface JPPhotoManager : NSObject
 
 /**
- 单例
+ 单例 使用单例调用启动方法
 
  @return 单例
  */

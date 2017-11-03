@@ -9,6 +9,7 @@
 #import "JPPhotoGroupCell.h"
 #import "JPPhotoGroupModel.h"
 #import "UIView+JP_Frame.h"
+#import "BaseConst.h"
 
 @implementation JPPhotoGroupCell
 

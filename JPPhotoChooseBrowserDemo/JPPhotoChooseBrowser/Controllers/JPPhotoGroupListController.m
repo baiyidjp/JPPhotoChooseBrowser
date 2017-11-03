@@ -12,6 +12,7 @@
 #import "JPPhotoGroupCell.h"
 #import "JPPhotoListController.h"
 #import "JPPhotoKitManager.h"
+#import "BaseConst.h"
 
 #define GroupCellID @"JPPhotoGroupCell"
 @interface JPPhotoGroupListController ()<UITableViewDelegate,UITableViewDataSource>

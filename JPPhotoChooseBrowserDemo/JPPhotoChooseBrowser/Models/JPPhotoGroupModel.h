@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/PHCollection.h>
+#import <UIKit/UIKit.h>
 
 @interface JPPhotoGroupModel : NSObject
 
