@@ -40,7 +40,7 @@
 ```
 
 //启动图片选择器
-[[JPPhotoManager sharedPhotoManager] openPhotoListWithController:self.superViewController MaxImageCount:3-self.imageArray.count];
+[[JPPhotoManager sharedPhotoManager] openPhotoListWithController:self.superViewController MaxImageCount:6];
 //设置代理
 [JPPhotoManager sharedPhotoManager].delegate = self;
 
