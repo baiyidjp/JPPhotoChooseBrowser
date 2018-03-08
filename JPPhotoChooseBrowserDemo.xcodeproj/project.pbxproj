@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F50505431FAC91E90041726C /* JPPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F50505421FAC91E90041726C /* JPPhotoManager.m */; };
+		F5DA5E5120513C19000395F4 /* JPShowBigImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA5E4F20513C18000395F4 /* JPShowBigImageView.m */; };
 		F5E050B01F9E10C100190698 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050AF1F9E10C100190698 /* AppDelegate.m */; };
 		F5E050B31F9E10C100190698 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050B21F9E10C100190698 /* ViewController.m */; };
 		F5E050B61F9E10C100190698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E050B41F9E10C100190698 /* Main.storyboard */; };
@@ -32,6 +33,8 @@
 		F50505421FAC91E90041726C /* JPPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoManager.m; sourceTree = "<group>"; };
 		F50505441FAC926C0041726C /* JPPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoManager.h; sourceTree = "<group>"; };
 		F50505451FAC93030041726C /* JPPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhoto.h; sourceTree = "<group>"; };
+		F5DA5E4F20513C18000395F4 /* JPShowBigImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPShowBigImageView.m; sourceTree = "<group>"; };
+		F5DA5E5020513C18000395F4 /* JPShowBigImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPShowBigImageView.h; sourceTree = "<group>"; };
 		F5E050AB1F9E10C100190698 /* JPPhotoChooseBrowserDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPPhotoChooseBrowserDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E050AE1F9E10C100190698 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5E050AF1F9E10C100190698 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				F5E050B21F9E10C100190698 /* ViewController.m */,
 				F5E050C41F9E10D600190698 /* JPChoosePicView.h */,
 				F5E050C51F9E10D600190698 /* JPChoosePicView.m */,
+				F5DA5E5020513C18000395F4 /* JPShowBigImageView.h */,
+				F5DA5E4F20513C18000395F4 /* JPShowBigImageView.m */,
 				F5E050C61F9E10D600190698 /* JPPhotoChooseBrowser */,
 				F5E050B41F9E10C100190698 /* Main.storyboard */,
 				F5E050E41F9E10DF00190698 /* PrefixHeader.pch */,
@@ -258,6 +263,7 @@
 				F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */,
 				F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */,
 				F50505431FAC91E90041726C /* JPPhotoManager.m in Sources */,
+				F5DA5E5120513C19000395F4 /* JPShowBigImageView.m in Sources */,
 				F5E050F01F9E11B900190698 /* UIView+JP_Frame.m in Sources */,
 				F5E050B31F9E10C100190698 /* ViewController.m in Sources */,
 				F5E050BE1F9E10C100190698 /* main.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "JPChoosePicView.h"
 #import "JPPhoto.h"
+#import "JPShowBigImageView.h"
 
 @interface JPChoosePicView()<UICollectionViewDelegate,UICollectionViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JPPhotoManagerDelegate>
 /** addBtn */
@@ -95,6 +96,13 @@
     
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIImage *image = (UIImage *)self.imageArray[indexPath.item];
+    [JPShowBigImageView showBigImageWithImage:image];
+}
+
 
 #pragma mark -changeBtn
 - (void)p_ChangeBtnFrame {
