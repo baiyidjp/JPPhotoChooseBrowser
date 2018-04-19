@@ -60,26 +60,8 @@
     self = [super init];
     if (self) {
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_SendPhoto:) name:@"JPSendPhotoKey" object:nil];
-         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_CancelPhoto:) name:@"JPCancelChoosePhotoKey" object:nil];
     }
     return self;
-}
-#pragma mark -接收发送图片的通知
-- (void)p_SendPhoto:(NSNotification *)notification {
-    
-    NSDictionary *info = notification.userInfo;
-    if ([self.delegate respondsToSelector:@selector(jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:originalImages:)]) {
-        [self.delegate jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:[info objectForKey:@"JPThumbImageKey"] originalImages:[info objectForKey:@"JPOriginalImageKey"]];
-    }
-}
-
-#pragma mark -取消图片选择
-- (void)p_CancelPhoto:(NSNotification *)notification {
-    
-    if ([self.delegate respondsToSelector:@selector(jp_ImagePickerControllerDidCancel)]) {
-        [self.delegate jp_ImagePickerControllerDidCancel];
-    }
 }
 
 - (void)jp_SendSeletedPhotosWithArray:(NSArray *)imageArray success:(void (^)(BOOL))success {
@@ -96,12 +78,23 @@
                 imageCount ++;
                 [originalImageArr addObject:fullScreenImage];
                 if (imageCount == imageArray.count) {
-                    [self.delegate jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:thumbImageArr originalImages:originalImageArr];
-                    success(YES);
+                    if ([self.delegate respondsToSelector:@selector(jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:originalImages:)]) {
+                        
+                        [self.delegate jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:thumbImageArr originalImages:originalImageArr];
+                        success(YES);
+                    }
                 }
             }
         }];
         [self.imageQueue addOperation:op];
+    }
+
+}
+
+- (void)jp_CancelChoosePhoto {
+    
+    if ([self.delegate respondsToSelector:@selector(jp_ImagePickerControllerDidCancel)]) {
+        [self.delegate jp_ImagePickerControllerDidCancel];
     }
 
 }

@@ -12,6 +12,7 @@
 #import "JPPhotoListController.h"
 #import "JPPhotoKitManager.h"
 #import "BaseConst.h"
+#import "JPPhotoManager.h"
 
 #define GroupCellID @"JPPhotoGroupCell"
 @interface JPPhotoGroupListController ()<UITableViewDelegate,UITableViewDataSource>
@@ -60,6 +61,7 @@
 
 - (void)clickCancleBtn{
     
+    [[JPPhotoManager sharedPhotoManager] jp_CancelChoosePhoto];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -56,6 +56,11 @@
  */
 - (void)jp_SendSeletedPhotosWithArray:(NSArray *)imageArray success:(void(^)(BOOL isSuccess))success;
 
+/**
+ 关闭相册
+ */
+- (void)jp_CancelChoosePhoto;
+
 /** deleagte */
 @property(nonatomic,weak) id<JPPhotoManagerDelegate> delegate;
 

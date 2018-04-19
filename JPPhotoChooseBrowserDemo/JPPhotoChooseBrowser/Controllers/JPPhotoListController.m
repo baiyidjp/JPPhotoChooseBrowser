@@ -53,7 +53,7 @@
 
 - (void)clickCancleBtn{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"JPCancelChoosePhotoKey" object:nil];
+    [[JPPhotoManager sharedPhotoManager] jp_CancelChoosePhoto];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -231,9 +231,4 @@
     }];
 }
 
-- (void)dealloc{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"JPCancelChoosePhotoKey" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"JPSendPhotoKey" object:nil];
-}
 @end
