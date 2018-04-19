@@ -12,6 +12,7 @@
 #import "JPPhotoKitManager.h"
 #import "UIView+JP_Frame.h"
 #import "BaseConst.h"
+#import "JPPhotoManager.h"
 
 #define ROW_COUNT 4
 #define PHOTOCELL_ID @"JPPhotoCollectionViewCell"
@@ -224,22 +225,10 @@
         return;
     }
     
-    NSMutableArray *thumbImageArr = [NSMutableArray array];
-    NSMutableArray *originalImageArr = [NSMutableArray array];
-    for (JPPhotoModel *model in self.seletedPhotoArray) {
-        [model jp_ThumbImageWithBlock:^(UIImage *thumbImage) {
-            [thumbImageArr addObject:thumbImage];
-        }];
-        [model jp_FullScreenImageWithBlock:^(UIImage *fullScreenImage) {
-            [originalImageArr addObject:fullScreenImage];
-        }];
-    }
-  
-    NSDictionary *imageInfo = @{@"JPThumbImageKey":thumbImageArr,
-                                @"JPOriginalImageKey": originalImageArr
-                                };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"JPSendPhotoKey" object:nil userInfo:imageInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [[JPPhotoManager sharedPhotoManager] jp_SendSeletedPhotosWithArray:[self.seletedPhotoArray copy] success:^(BOOL isSuccess) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
 }
 
 - (void)dealloc{

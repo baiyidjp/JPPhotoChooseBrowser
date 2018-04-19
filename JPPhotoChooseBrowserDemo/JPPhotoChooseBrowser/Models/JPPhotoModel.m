@@ -64,7 +64,7 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
  
     UIImage *image = objc_getAssociatedObject(self, kFullScreenImageKey);
     if (image != nil) {
-        GetFullScreenImageBlock(image);
+        GetFullScreenImageBlock(image,YES);
         return;
     }
     CGFloat screenScale = [UIScreen mainScreen].scale;
@@ -73,9 +73,15 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
 
     [[JPPhotoModel sharedPHImageManager] requestImageForAsset:self.phAsset targetSize:CGSizeMake(JP_SCREENWIDTH*screenScale, JP_SCREENHEIGHT*screenScale) contentMode:PHImageContentModeAspectFill options:options resultHandler:^(UIImage *result, NSDictionary *info) {
         NSLog(@"2---全屏图");
-        GetFullScreenImageBlock(result);
-        //此处设置关联对象
-        objc_setAssociatedObject(self, kFullScreenImageKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        if ([[info valueForKey:@"PHImageResultIsDegradedKey"]integerValue]==0){
+            // Do something with the FULL SIZED image
+            GetFullScreenImageBlock(result,YES);
+            //此处设置关联对象
+            objc_setAssociatedObject(self, kFullScreenImageKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        } else {
+            // Do something with the regraded image
+            GetFullScreenImageBlock(result,NO);
+        }
         
     }];
 

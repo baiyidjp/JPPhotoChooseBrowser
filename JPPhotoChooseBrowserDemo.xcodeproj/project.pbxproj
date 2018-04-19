@@ -26,6 +26,7 @@
 		F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050DE1F9E10D600190698 /* JPPhotoCollectionViewCell.m */; };
 		F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050E01F9E10D600190698 /* JPPhotoGroupCell.m */; };
 		F5E050F01F9E11B900190698 /* UIView+JP_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050E21F9E10D600190698 /* UIView+JP_Frame.m */; };
+		F5E49BBC2088B2EC00DD56AA /* JPPhotoOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E49BBB2088B2EC00DD56AA /* JPPhotoOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		F5E050E11F9E10D600190698 /* UIView+JP_Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JP_Frame.h"; sourceTree = "<group>"; };
 		F5E050E21F9E10D600190698 /* UIView+JP_Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JP_Frame.m"; sourceTree = "<group>"; };
 		F5E050E41F9E10DF00190698 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F5E49BBA2088B2EC00DD56AA /* JPPhotoOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoOperation.h; sourceTree = "<group>"; };
+		F5E49BBB2088B2EC00DD56AA /* JPPhotoOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				F50505411FAC91D70041726C /* BaseConst.h */,
 				F5E050D51F9E10D600190698 /* JPPhotoKitManager.h */,
 				F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */,
+				F5E49BBA2088B2EC00DD56AA /* JPPhotoOperation.h */,
+				F5E49BBB2088B2EC00DD56AA /* JPPhotoOperation.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				F5E050EC1F9E11B900190698 /* JPPhotoGroupModel.m in Sources */,
 				F5E050ED1F9E11B900190698 /* JPPhotoModel.m in Sources */,
 				F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */,
+				F5E49BBC2088B2EC00DD56AA /* JPPhotoOperation.m in Sources */,
 				F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */,
 				F50505431FAC91E90041726C /* JPPhotoManager.m in Sources */,
 				F5DA5E5120513C19000395F4 /* JPShowBigImageView.m in Sources */,

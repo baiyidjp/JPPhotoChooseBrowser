@@ -66,7 +66,7 @@
     [_scrollView addSubview:self.imageV];
     
     JP_WEAK_SELF(weakSelf);
-    [model jp_FullScreenImageWithBlock:^(UIImage *fullScreenImage) {
+    [model jp_FullScreenImageWithBlock:^(UIImage *fullScreenImage,BOOL isFull) {
         weakSelf.imageV.image = fullScreenImage;
         [weakSelf p_SetImageSizeWithImage:fullScreenImage scale:1];
     }];

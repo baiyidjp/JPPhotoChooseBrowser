@@ -49,6 +49,13 @@
  */
 - (void)jp_OpenPhotoListWithController:(UIViewController *)viewController MaxImageCount:(NSInteger)maxImageCount;
 
+/**
+ 发送照片
+
+ @param imageArray 已选中的照片
+ */
+- (void)jp_SendSeletedPhotosWithArray:(NSArray *)imageArray success:(void(^)(BOOL isSuccess))success;
+
 /** deleagte */
 @property(nonatomic,weak) id<JPPhotoManagerDelegate> delegate;
 

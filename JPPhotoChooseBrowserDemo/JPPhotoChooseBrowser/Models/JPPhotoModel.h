@@ -9,7 +9,7 @@
 #import <Photos/Photos.h>
 
 typedef void(^GetThumbImageBlock)(UIImage *thumbImage);
-typedef void(^GetFullScreenImageBlock)(UIImage *fullScreenImage);
+typedef void(^GetFullScreenImageBlock)(UIImage *fullScreenImage,BOOL isFull);
 typedef void(^GetFullResolutDataBlock)(NSData *fullResolutData);
 typedef void(^GetFullResolutDataSizeBlock)(CGFloat fullResolutDataSize);
 typedef void(^GetFullScreenImageDataBlock)(NSData *fullScreenImageData);
@@ -36,7 +36,6 @@ typedef void(^GetFullScreenImageDataBlock)(NSData *fullScreenImageData);
 
 /** 获取是否是视频类型, Default = false */
 @property (assign,nonatomic) BOOL isVideoType;
-
 /** 是否被选中 */
 @property(nonatomic,assign)BOOL isSelect;
 /** 选中的顺序 */
