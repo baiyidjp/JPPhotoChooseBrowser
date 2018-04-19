@@ -1,6 +1,6 @@
 //
 //  JPPhotoManager.m
-//  ThreePic
+//  
 //
 //  Created by Keep丶Dream on 2017/10/20.
 //  Copyright © 2017年 dong. All rights reserved.
@@ -24,12 +24,12 @@
 }
 
 
-- (void)openPhotoListWithController:(UIViewController *)viewController {
+- (void)jp_OpenPhotoListWithController:(UIViewController *)viewController {
     
-    [self openPhotoListWithController:viewController MaxImageCount:9];
+    [self jp_OpenPhotoListWithController:viewController MaxImageCount:9];
 }
 
-- (void)openPhotoListWithController:(UIViewController *)viewController MaxImageCount:(NSInteger)maxImageCount {
+- (void)jp_OpenPhotoListWithController:(UIViewController *)viewController MaxImageCount:(NSInteger)maxImageCount {
     
     JPPhotoGroupListController *photoCtrl = [[JPPhotoGroupListController alloc] init];
     photoCtrl.maxImageCount = maxImageCount;
@@ -52,16 +52,16 @@
 - (void)p_SendPhoto:(NSNotification *)notification {
     
     NSDictionary *info = notification.userInfo;
-    if ([self.delegate respondsToSelector:@selector(imagePickerControllerDidFinishPickingMediaWithThumbImages:originalImages:)]) {
-        [self.delegate imagePickerControllerDidFinishPickingMediaWithThumbImages:[info objectForKey:@"JPThumbImageKey"] originalImages:[info objectForKey:@"JPOriginalImageKey"]];
+    if ([self.delegate respondsToSelector:@selector(jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:originalImages:)]) {
+        [self.delegate jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:[info objectForKey:@"JPThumbImageKey"] originalImages:[info objectForKey:@"JPOriginalImageKey"]];
     }
 }
 
 #pragma mark -取消图片选择
 - (void)p_CancelPhoto:(NSNotification *)notification {
     
-    if ([self.delegate respondsToSelector:@selector(imagePickerControllerDidCancel)]) {
-        [self.delegate imagePickerControllerDidCancel];
+    if ([self.delegate respondsToSelector:@selector(jp_ImagePickerControllerDidCancel)]) {
+        [self.delegate jp_ImagePickerControllerDidCancel];
     }
 }
 

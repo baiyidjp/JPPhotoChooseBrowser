@@ -1,8 +1,7 @@
 //
 //  JPPhotoShowController.h
-//  JPPhotoBrowserDemo
+//  负责单张照片的显示的控制器
 //
-//  Created by tztddong on 2017/4/1.
 //  Copyright © 2017年 dongjiangpeng. All rights reserved.
 //
 
@@ -14,8 +13,6 @@
 
 @end
 
-
-//负责单张照片的显示的控制器
 @class JPPhotoModel;
 @interface JPPhotoShowController : UIViewController
 

@@ -1,6 +1,6 @@
 //
 //  JPShowBigImageView.h
-//  Cece
+//  选中之后点击展示大图
 //
 //  Created by Keep丶Dream on 2017/12/15.
 //

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    JPChoosePicView *picView = [[JPChoosePicView alloc] initWithFrame:CGRectMake(0, 100,self.view.frame.size.width, (self.view.frame.size.width-40)/3)];
+    JPChoosePicView *picView = [[JPChoosePicView alloc] initWithFrame:CGRectMake(15, 100,self.view.frame.size.width-30, self.view.frame.size.width-30)];
     picView.superViewController = self;
     [self.view addSubview:picView];
 }

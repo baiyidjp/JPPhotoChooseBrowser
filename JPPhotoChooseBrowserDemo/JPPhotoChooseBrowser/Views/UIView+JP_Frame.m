@@ -1,9 +1,8 @@
 //
 //  UIView+JP_Frame.m
-//  JPHeaderViewScale
 //
-//  Created by tztddong on 2016/11/3.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "UIView+JP_Frame.h"

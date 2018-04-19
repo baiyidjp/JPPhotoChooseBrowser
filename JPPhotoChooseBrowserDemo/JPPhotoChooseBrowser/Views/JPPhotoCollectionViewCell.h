@@ -1,9 +1,8 @@
 //
 //  JPPhotoCollectionViewCell.h
-//  WeChat_D
+//  单个照片
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

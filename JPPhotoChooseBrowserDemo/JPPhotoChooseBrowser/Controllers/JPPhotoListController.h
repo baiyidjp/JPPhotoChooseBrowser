@@ -1,9 +1,8 @@
 //
 //  JPPhotoListController.h
-//  WeChat_D
+//  相册里的相片列表
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -1,9 +1,8 @@
 //
 //  JPPhotoKitManger.m
-//  WeChat_D
 //
-//  Created by Keep丶Dream on 16/8/13.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPPhotoKitManager.h"
@@ -24,7 +23,7 @@ static JPPhotoKitManager *photoKitManager = nil;
     return photoKitManager;
 }
 
-- (void)PHGetPhotoGroupArrayWithBlock:(PHGroupArrBlock)PHGroupArrBlock{
+- (void)jp_GetPhotoGroupArrayWithBlock:(PHGroupArrBlock)PHGroupArrBlock{
     
     NSMutableArray *photoGroupArray = [NSMutableArray array];
     // 列出所有相册智能相册
@@ -80,7 +79,7 @@ static JPPhotoKitManager *photoKitManager = nil;
         }
 }
 
-- (void)PHGetPhotoListWithModel:(JPPhotoGroupModel *)groupModel Block:(PHPhotoListBlock)PHPhotoListBlock{
+- (void)jp_GetPhotoListWithModel:(JPPhotoGroupModel *)groupModel Block:(PHPhotoListBlock)PHPhotoListBlock{
     
     NSMutableArray *photoListArr = [NSMutableArray array];
     PHAssetCollection *assetCollection = groupModel.assetCollection;

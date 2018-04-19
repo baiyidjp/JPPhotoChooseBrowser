@@ -1,9 +1,8 @@
 //
 //  JPScreenPhotoController.m
-//  WeChat_D
 //
-//  Created by tztddong on 16/8/11.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPScreenPhotoController.h"
@@ -272,10 +271,10 @@
     NSMutableArray *thumbImageArr = [NSMutableArray array];
     NSMutableArray *originalImageArr = [NSMutableArray array];
     for (JPPhotoModel *model in self.seletedPhotoArray) {
-        [model JPThumbImageWithBlock:^(UIImage *thumbImage) {
+        [model jp_ThumbImageWithBlock:^(UIImage *thumbImage) {
             [thumbImageArr addObject:thumbImage];
         }];
-        [model JPFullScreenImageWithBlock:^(UIImage *fullScreenImage) {
+        [model jp_FullScreenImageWithBlock:^(UIImage *fullScreenImage) {
             [originalImageArr addObject:fullScreenImage];
         }];
     }

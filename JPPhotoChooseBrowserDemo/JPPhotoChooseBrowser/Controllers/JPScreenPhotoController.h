@@ -1,9 +1,8 @@
 //
 //  JPScreenPhotoController.h
-//  WeChat_D
+//  负责全屏展示照片的控制器
 //
-//  Created by tztddong on 16/8/11.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

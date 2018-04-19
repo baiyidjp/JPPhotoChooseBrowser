@@ -1,9 +1,8 @@
 //
 //  JPPhotoGroupCell.m
-//  WeChat_D
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPPhotoGroupCell.h"

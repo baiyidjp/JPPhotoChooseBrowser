@@ -1,9 +1,8 @@
 //
 //  JPPhotoGroupListController.m
-//  WeChat_D
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPPhotoGroupListController.h"
@@ -41,7 +40,7 @@
     
 
     //获取相册列表
-    [[JPPhotoKitManager sharedPhotoKitManager] PHGetPhotoGroupArrayWithBlock:^(NSArray *groupArray) {
+    [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoGroupArrayWithBlock:^(NSArray *groupArray) {
         
         [self.groupDataArray addObjectsFromArray:groupArray];
         [groupTableView reloadData];

@@ -2,7 +2,6 @@
 //  JPPhotoShowController.m
 //  JPPhotoBrowserDemo
 //
-//  Created by tztddong on 2017/4/1.
 //  Copyright © 2017年 dongjiangpeng. All rights reserved.
 //
 
@@ -67,7 +66,7 @@
     [_scrollView addSubview:self.imageV];
     
     JP_WEAK_SELF(weakSelf);
-    [model JPFullScreenImageWithBlock:^(UIImage *fullScreenImage) {
+    [model jp_FullScreenImageWithBlock:^(UIImage *fullScreenImage) {
         weakSelf.imageV.image = fullScreenImage;
         [weakSelf p_SetImageSizeWithImage:fullScreenImage scale:1];
     }];

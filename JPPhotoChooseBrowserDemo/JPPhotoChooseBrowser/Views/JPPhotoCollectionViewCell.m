@@ -1,9 +1,8 @@
 //
 //  JPPhotoCollectionViewCell.m
-//  WeChat_D
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPPhotoCollectionViewCell.h"
@@ -100,7 +99,7 @@
     
     _photoModel = photoModel;
     
-    [photoModel JPThumbImageWithBlock:^(UIImage *thumbImage) {
+    [photoModel jp_ThumbImageWithBlock:^(UIImage *thumbImage) {
         
         self.photoImage.image = thumbImage;
     }];

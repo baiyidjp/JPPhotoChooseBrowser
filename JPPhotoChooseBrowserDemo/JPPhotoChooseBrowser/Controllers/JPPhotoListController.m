@@ -1,9 +1,8 @@
 //
 //  JPPhotoListController.m
-//  WeChat_D
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPPhotoListController.h"
@@ -44,7 +43,7 @@
     
     [self setCollectionView];
     
-    [[JPPhotoKitManager sharedPhotoKitManager] PHGetPhotoListWithModel:self.groupModel Block:^(NSArray *photoList) {
+    [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoListWithModel:self.groupModel Block:^(NSArray *photoList) {
         [self.photoDataArray addObjectsFromArray:photoList];
         [photoCollectionView reloadData];
     }];
@@ -228,10 +227,10 @@
     NSMutableArray *thumbImageArr = [NSMutableArray array];
     NSMutableArray *originalImageArr = [NSMutableArray array];
     for (JPPhotoModel *model in self.seletedPhotoArray) {
-        [model JPThumbImageWithBlock:^(UIImage *thumbImage) {
+        [model jp_ThumbImageWithBlock:^(UIImage *thumbImage) {
             [thumbImageArr addObject:thumbImage];
         }];
-        [model JPFullScreenImageWithBlock:^(UIImage *fullScreenImage) {
+        [model jp_FullScreenImageWithBlock:^(UIImage *fullScreenImage) {
             [originalImageArr addObject:fullScreenImage];
         }];
     }

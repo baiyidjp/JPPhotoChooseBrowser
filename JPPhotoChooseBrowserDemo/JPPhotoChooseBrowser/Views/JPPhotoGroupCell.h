@@ -1,9 +1,8 @@
 //
 //  JPPhotoGroupCell.h
-//  WeChat_D
+//  相册组cell
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

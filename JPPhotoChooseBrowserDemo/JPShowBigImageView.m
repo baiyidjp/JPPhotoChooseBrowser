@@ -1,6 +1,6 @@
 //
 //  CCShowBigImageView.m
-//  Cece
+//  
 //
 //  Created by Keep丶Dream on 2017/12/15.
 //

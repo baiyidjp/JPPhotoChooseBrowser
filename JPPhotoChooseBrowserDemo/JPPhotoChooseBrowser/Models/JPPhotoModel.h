@@ -1,9 +1,8 @@
 //
 //  JPPhotoModel.h
-//  WeChat_D
+//  一个相册组中的照片列表的Model
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,10 +22,10 @@ typedef void(^GetFullScreenImageDataBlock)(NSData *fullScreenImageData);
 @property(nonatomic,strong) PHAsset *phAsset;
 
 /** 获取缩略图 */
-- (void)JPThumbImageWithBlock:(GetThumbImageBlock)GetThumbImageBlock;
+- (void)jp_ThumbImageWithBlock:(GetThumbImageBlock)GetThumbImageBlock;
 
 /** 获取屏幕大小的原图 */
-- (void)JPFullScreenImageWithBlock:(GetFullScreenImageBlock)GetFullScreenImageBlock;//适应屏幕的原图
+- (void)jp_FullScreenImageWithBlock:(GetFullScreenImageBlock)GetFullScreenImageBlock;//适应屏幕的原图
 
 /** 原图的本地路径 */
 @property(nonatomic,strong) NSString *originalImageFileURL;

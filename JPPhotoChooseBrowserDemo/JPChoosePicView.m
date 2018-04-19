@@ -1,6 +1,6 @@
 //
 //  JPChoosePicView.m
-//  ThreePic
+//  
 //
 //  Created by Keep丶Dream on 2017/10/18.
 //  Copyright © 2017年 dong. All rights reserved.
@@ -47,12 +47,13 @@
 - (void)p_SetupUI {
     
     _viewWidth = self.frame.size.width;
-    _itemW = (_viewWidth-30-10*2)/3;
+    _itemW = (_viewWidth-10*2)/3.0;
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 10;
+    layout.minimumLineSpacing = 10;
     layout.itemSize = CGSizeMake(_itemW, _itemW);
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, _viewWidth-30, _itemW) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, _viewWidth, self.frame.size.height) collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
@@ -60,7 +61,7 @@
     [self addSubview:collectionView];
     self.collectionView = collectionView;
     
-    UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 0, _itemW, _itemW)];
+    UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, _itemW, _itemW)];
     [addBtn setBackgroundImage:[UIImage imageNamed:@"add_pic"] forState:UIControlStateNormal];
     [addBtn addTarget:self action:@selector(p_AddBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:addBtn];
@@ -109,13 +110,15 @@
     
     NSInteger arrCount = self.imageArray.count;
     
-    if (arrCount >= 3) {
+    if (arrCount >= 9) {
         self.addBtn.hidden = YES;
     }else {
         self.addBtn.hidden = NO;
     }
+    NSInteger btnX = (_itemW+10)*(arrCount%3);
+    NSInteger btnY = (_itemW+10)*(arrCount/3);
     [UIView animateWithDuration:0.3 animations:^{
-        self.addBtn.frame = CGRectMake(15+arrCount*(_itemW+10), 0, _itemW, _itemW);
+        self.addBtn.frame = CGRectMake(btnX, btnY, _itemW, _itemW);
     }];
 }
 
@@ -143,7 +146,7 @@
     [alertCtrl addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         //启动图片选择器
-        [[JPPhotoManager sharedPhotoManager] openPhotoListWithController:self.superViewController MaxImageCount:3-self.imageArray.count];
+        [[JPPhotoManager sharedPhotoManager] jp_OpenPhotoListWithController:self.superViewController MaxImageCount:9-self.imageArray.count];
         //设置代理
         [JPPhotoManager sharedPhotoManager].delegate = self;
     }]];
@@ -177,7 +180,7 @@
     [self p_ChangeBtnFrame];
 }
 #pragma mark - JPPhotoManagerDelegate
-- (void)imagePickerControllerDidFinishPickingMediaWithThumbImages:(NSArray *)thumbImages originalImages:(NSArray *)originalImages {
+- (void)jp_ImagePickerControllerDidFinishPickingMediaWithThumbImages:(NSArray *)thumbImages originalImages:(NSArray *)originalImages {
     
     [self.imageArray addObjectsFromArray:originalImages];
     [self.collectionView reloadData];
@@ -185,7 +188,7 @@
 
 }
 
-- (void)imagePickerControllerDidCancel {
+- (void)jp_ImagePickerControllerDidCancel {
     
 }
 @end

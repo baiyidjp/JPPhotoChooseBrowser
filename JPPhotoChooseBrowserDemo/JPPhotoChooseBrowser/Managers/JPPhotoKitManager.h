@@ -1,9 +1,8 @@
 //
 //  JPPhotoKitManger.h
-//  WeChat_D
+//  单个相册中照片管理类
 //
-//  Created by Keep丶Dream on 16/8/13.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -26,7 +25,7 @@ typedef void(^PHPhotoListBlock)(NSArray *photoList);
 
  @param PHGroupArrBlock 相册组Model集合
  */
-- (void)PHGetPhotoGroupArrayWithBlock:(PHGroupArrBlock)PHGroupArrBlock;
+- (void)jp_GetPhotoGroupArrayWithBlock:(PHGroupArrBlock)PHGroupArrBlock;
 
 /**
  通过相册组的Model,获取当前相册的所有相片Model
@@ -34,7 +33,7 @@ typedef void(^PHPhotoListBlock)(NSArray *photoList);
  @param groupModel 相册组的Model
  @param PHPhotoListBlock 当前相册下所有的相片的Model
  */
-- (void)PHGetPhotoListWithModel:(JPPhotoGroupModel *)groupModel Block:(PHPhotoListBlock)PHPhotoListBlock;
+- (void)jp_GetPhotoListWithModel:(JPPhotoGroupModel *)groupModel Block:(PHPhotoListBlock)PHPhotoListBlock;
 
 
 @end

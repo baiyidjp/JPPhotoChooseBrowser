@@ -1,6 +1,6 @@
 //
 //  JPChoosePicView.h
-//  ThreePic
+//  
 //
 //  Created by Keep丶Dream on 2017/10/18.
 //  Copyright © 2017年 dong. All rights reserved.

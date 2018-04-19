@@ -1,9 +1,8 @@
 //
 //  JPPhotoModel.m
-//  WeChat_D
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import "JPPhotoModel.h"
@@ -37,7 +36,7 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
 
 #pragma mark - 缩略图相关
 
-- (void)JPThumbImageWithBlock:(GetThumbImageBlock)GetThumbImageBlock {
+- (void)jp_ThumbImageWithBlock:(GetThumbImageBlock)GetThumbImageBlock {
     
     //取出关联对象 所关联的值
     UIImage *image = objc_getAssociatedObject(self, kThumbImageKey);
@@ -61,7 +60,7 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
 
 #pragma mark - 全屏图
 
-- (void)JPFullScreenImageWithBlock:(GetFullScreenImageBlock)GetFullScreenImageBlock {
+- (void)jp_FullScreenImageWithBlock:(GetFullScreenImageBlock)GetFullScreenImageBlock {
  
     UIImage *image = objc_getAssociatedObject(self, kFullScreenImageKey);
     if (image != nil) {

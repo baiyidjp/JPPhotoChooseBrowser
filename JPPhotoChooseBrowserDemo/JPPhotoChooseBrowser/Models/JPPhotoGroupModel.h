@@ -1,9 +1,8 @@
 //
 //  JPPhotoGroupModel.h
-//  WeChat_D
+//  相册组列表的Model
 //
-//  Created by tztddong on 16/8/10.
-//  Copyright © 2016年 dongjiangpeng. All rights reserved.
+//  Copyright © dongjiangpeng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
