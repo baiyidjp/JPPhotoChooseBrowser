@@ -38,7 +38,7 @@
 }
 
 
-+ (instancetype)addOperationWithModel:(JPPhotoModel *)model completeBlock:(id)completeBlock {
++ (instancetype)addOperationWithModel:(JPPhotoModel *)model completeBlock:(GetFullScreenImageBlock)completeBlock {
     
     JPPhotoOperation *op = [[JPPhotoOperation alloc] init];
     op.model = model;

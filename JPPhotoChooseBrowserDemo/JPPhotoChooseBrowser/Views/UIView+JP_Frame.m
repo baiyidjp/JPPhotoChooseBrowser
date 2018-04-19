@@ -88,19 +88,4 @@
     }
 }
 
-- (void)jp_viewMoveTo_X:(CGFloat)x Y:(CGFloat)y duration:(CGFloat)duration finishBlock:(void (^)())finishBlock{
-    
-    [UIView animateWithDuration:duration animations:^{
-        
-            self.jp_x = x;
-            self.jp_y = y;
-        
-    } completion:^(BOOL finished) {
-        
-        if (finishBlock) {
-            finishBlock();
-        }
-    }];
-}
-
 @end
