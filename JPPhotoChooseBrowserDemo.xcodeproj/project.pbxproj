@@ -27,6 +27,7 @@
 		F5E050EF1F9E11B900190698 /* JPPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050E01F9E10D600190698 /* JPPhotoGroupCell.m */; };
 		F5E050F01F9E11B900190698 /* UIView+JP_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050E21F9E10D600190698 /* UIView+JP_Frame.m */; };
 		F5E49BBC2088B2EC00DD56AA /* JPPhotoOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E49BBB2088B2EC00DD56AA /* JPPhotoOperation.m */; };
+		F5E49BCC2089EAC400DD56AA /* JPPhotoAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E49BCB2089EAC400DD56AA /* JPPhotoAuthor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		F5E050E41F9E10DF00190698 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F5E49BBA2088B2EC00DD56AA /* JPPhotoOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoOperation.h; sourceTree = "<group>"; };
 		F5E49BBB2088B2EC00DD56AA /* JPPhotoOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoOperation.m; sourceTree = "<group>"; };
+		F5E49BCA2089EAC400DD56AA /* JPPhotoAuthor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPPhotoAuthor.h; sourceTree = "<group>"; };
+		F5E49BCB2089EAC400DD56AA /* JPPhotoAuthor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPPhotoAuthor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				F5E050D61F9E10D600190698 /* JPPhotoKitManager.m */,
 				F5E49BBA2088B2EC00DD56AA /* JPPhotoOperation.h */,
 				F5E49BBB2088B2EC00DD56AA /* JPPhotoOperation.m */,
+				F5E49BCA2089EAC400DD56AA /* JPPhotoAuthor.h */,
+				F5E49BCB2089EAC400DD56AA /* JPPhotoAuthor.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				F5E050E71F9E11B900190698 /* JPPhotoGroupListController.m in Sources */,
 				F5E050E81F9E11B900190698 /* JPPhotoListController.m in Sources */,
 				F5E050E91F9E11B900190698 /* JPPhotoShowController.m in Sources */,
+				F5E49BCC2089EAC400DD56AA /* JPPhotoAuthor.m in Sources */,
 				F5E050EA1F9E11B900190698 /* JPScreenPhotoController.m in Sources */,
 				F5E050EB1F9E11B900190698 /* JPPhotoKitManager.m in Sources */,
 				F5E050EC1F9E11B900190698 /* JPPhotoGroupModel.m in Sources */,

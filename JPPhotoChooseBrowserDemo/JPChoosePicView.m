@@ -9,6 +9,8 @@
 #import "JPChoosePicView.h"
 #import "JPPhoto.h"
 #import "JPShowBigImageView.h"
+#import <Photos/Photos.h>
+#import "JPPhotoAuthor.h"
 
 @interface JPChoosePicView()<UICollectionViewDelegate,UICollectionViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate,JPPhotoManagerDelegate>
 /** addBtn */
@@ -145,19 +147,28 @@
     
     [alertCtrl addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        //启动图片选择器
-        [[JPPhotoManager sharedPhotoManager] jp_OpenPhotoListWithController:self.superViewController MaxImageCount:9-self.imageArray.count];
-        //设置代理
-        [JPPhotoManager sharedPhotoManager].delegate = self;
+        [JPPhotoAuthor checkPhotoAuthorSuccess:^{
+            //启动图片选择器
+            [[JPPhotoManager sharedPhotoManager] jp_OpenPhotoListWithController:self.superViewController MaxImageCount:9-self.imageArray.count];
+            //设置代理
+            [JPPhotoManager sharedPhotoManager].delegate = self;
+
+        } Failure:^(NSString *message) {
+            NSLog(@"%@",message);
+        }];
     }]];
     [alertCtrl addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
-        UIImagePickerController *cameraCtrl = [[UIImagePickerController alloc] init];
-        cameraCtrl.sourceType = UIImagePickerControllerSourceTypeCamera;
-        cameraCtrl.allowsEditing = NO;
-        cameraCtrl.delegate = self;
-        [self.superViewController  presentViewController:cameraCtrl animated:YES completion:nil];
-        
+        [JPPhotoAuthor checkCameraAuthorSuccess:^{
+            UIImagePickerController *cameraCtrl = [[UIImagePickerController alloc] init];
+            cameraCtrl.sourceType = UIImagePickerControllerSourceTypeCamera;
+            cameraCtrl.allowsEditing = NO;
+            cameraCtrl.delegate = self;
+            [self.superViewController  presentViewController:cameraCtrl animated:YES completion:nil];
+
+        } Failure:^(NSString *message) {
+            NSLog(@"%@",message);
+        }];
     }]];
         
     [alertCtrl addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
