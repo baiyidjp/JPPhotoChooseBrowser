@@ -10,6 +10,7 @@
 #import "JPPhotoGroupListController.h"
 #import "JPPhotoModel.h"
 #import "JPPhotoOperation.h"
+#import "JPPhotoAuthor.h"
 
 @interface JPPhotoManager()
 /** queue */
@@ -48,10 +49,18 @@
 
 - (void)jp_OpenPhotoListWithController:(UIViewController *)viewController MaxImageCount:(NSInteger)maxImageCount {
     
-    JPPhotoGroupListController *photoCtrl = [[JPPhotoGroupListController alloc] init];
-    photoCtrl.maxImageCount = maxImageCount;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:photoCtrl];
-    [viewController presentViewController:nav animated:YES completion:nil];
+    [JPPhotoAuthor checkPhotoAuthorSuccess:^{
+
+        JPPhotoGroupListController *photoCtrl = [[JPPhotoGroupListController alloc] init];
+        photoCtrl.maxImageCount = maxImageCount;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:photoCtrl];
+        [viewController presentViewController:nav animated:YES completion:nil];
+        
+    } Failure:^(NSString *message) {
+        NSLog(@"%@",message);
+    }];
+
+    
 
 }
 

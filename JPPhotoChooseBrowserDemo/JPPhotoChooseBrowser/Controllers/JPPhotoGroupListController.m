@@ -6,7 +6,6 @@
 //
 
 #import "JPPhotoGroupListController.h"
-#import <AssetsLibrary/AssetsLibrary.h>
 #import "JPPhotoGroupModel.h"
 #import "JPPhotoGroupCell.h"
 #import "JPPhotoListController.h"

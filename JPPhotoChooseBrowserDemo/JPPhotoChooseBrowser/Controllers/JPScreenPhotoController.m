@@ -269,14 +269,11 @@
     }
     
     [[JPPhotoManager sharedPhotoManager] jp_SendSeletedPhotosWithArray:[self.seletedPhotoArray copy] success:^(BOOL isSuccess) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        if (isSuccess) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }
 
     }];
-}
-
-- (void)dealloc{
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"JPSendPhotoKey" object:nil];
 }
 
 @end

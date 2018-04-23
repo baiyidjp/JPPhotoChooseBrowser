@@ -226,7 +226,9 @@
     }
     
     [[JPPhotoManager sharedPhotoManager] jp_SendSeletedPhotosWithArray:[self.seletedPhotoArray copy] success:^(BOOL isSuccess) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        if (isSuccess) {        
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }
         
     }];
 }
