@@ -40,21 +40,20 @@
     
 
     //获取相册列表
-    [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoGroupArrayWithBlock:^(NSArray *groupArray) {
-        
-        [self.groupDataArray addObjectsFromArray:groupArray];
-        [groupTableView reloadData];
-        // 遍历找出相机胶卷组 直接打开
-        for (JPPhotoGroupModel *model in self.groupDataArray) {
-            if ([model.groupName isEqualToString:@"相机胶卷"] || [model.groupName isEqualToString:@"Camera Roll"] ) {
-                JPPhotoListController *photoListCtrl = [[JPPhotoListController alloc]init];
-                photoListCtrl.groupModel = model;
-                photoListCtrl.title = model.groupName;
-                photoListCtrl.maxImageCount = self.maxImageCount;
-                [self.navigationController pushViewController:photoListCtrl animated:NO];
-            }
+    NSArray *groupArray = [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoGroupArray];
+
+    [self.groupDataArray addObjectsFromArray:groupArray];
+    [groupTableView reloadData];
+    // 遍历找出相机胶卷组 直接打开
+    for (JPPhotoGroupModel *model in self.groupDataArray) {
+       if ([model.groupName isEqualToString:@"相机胶卷"] || [model.groupName isEqualToString:@"Camera Roll"] ) {
+           JPPhotoListController *photoListCtrl = [[JPPhotoListController alloc]init];
+           photoListCtrl.groupModel = model;
+           photoListCtrl.title = model.groupName;
+           photoListCtrl.maxImageCount = self.maxImageCount;
+           [self.navigationController pushViewController:photoListCtrl animated:NO];
         }
-    }];
+    }
 }
 
 

@@ -7,9 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^PHGroupArrBlock)(NSArray *groupArray);
-typedef void(^PHPhotoListBlock)(NSArray *photoList);
-
 @class JPPhotoGroupModel;
 @interface JPPhotoKitManager : NSObject
 
@@ -23,17 +20,18 @@ typedef void(^PHPhotoListBlock)(NSArray *photoList);
 /**
  获取所有相册组
 
- @param PHGroupArrBlock 相册组Model集合
+ @return 相册组Model集合
  */
-- (void)jp_GetPhotoGroupArrayWithBlock:(PHGroupArrBlock)PHGroupArrBlock;
+- (NSArray *)jp_GetPhotoGroupArray;
 
 /**
  通过相册组的Model,获取当前相册的所有相片Model
-
+ 
  @param groupModel 相册组的Model
- @param PHPhotoListBlock 当前相册下所有的相片的Model
+ 
+ @return 单独一个相册的数据
  */
-- (void)jp_GetPhotoListWithModel:(JPPhotoGroupModel *)groupModel Block:(PHPhotoListBlock)PHPhotoListBlock;
+- (NSArray *)jp_GetPhotoListWithModel:(JPPhotoGroupModel *)groupModel;
 
 
 @end

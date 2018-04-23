@@ -44,10 +44,9 @@
     
     [self setCollectionView];
     
-    [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoListWithModel:self.groupModel Block:^(NSArray *photoList) {
-        [self.photoDataArray addObjectsFromArray:photoList];
-        [photoCollectionView reloadData];
-    }];
+    NSArray *photoList = [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoListWithModel:self.groupModel];
+    [self.photoDataArray addObjectsFromArray:photoList];
+    [photoCollectionView reloadData];
 }
 
 

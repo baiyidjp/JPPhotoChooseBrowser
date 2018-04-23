@@ -23,7 +23,7 @@ static JPPhotoKitManager *photoKitManager = nil;
     return photoKitManager;
 }
 
-- (void)jp_GetPhotoGroupArrayWithBlock:(PHGroupArrBlock)PHGroupArrBlock{
+- (NSArray *)jp_GetPhotoGroupArray {
     
     NSMutableArray *photoGroupArray = [NSMutableArray array];
     // 列出所有相册智能相册
@@ -68,18 +68,18 @@ static JPPhotoKitManager *photoKitManager = nil;
                 }];
             }
             if (i == smartAlbums.count-1) {
-                if (PHGroupArrBlock) {
-                    PHGroupArrBlock([photoGroupArray copy]);
-                }
+                return [photoGroupArray copy];
+                
             }
 
         }else {
                 NSAssert(NO, @"Fetch collection not PHCollection: %@", collection);
             }
         }
+    return @[];
 }
 
-- (void)jp_GetPhotoListWithModel:(JPPhotoGroupModel *)groupModel Block:(PHPhotoListBlock)PHPhotoListBlock{
+- (NSArray *)jp_GetPhotoListWithModel:(JPPhotoGroupModel *)groupModel {
     
     NSMutableArray *photoListArr = [NSMutableArray array];
     PHAssetCollection *assetCollection = groupModel.assetCollection;
@@ -99,11 +99,11 @@ static JPPhotoKitManager *photoKitManager = nil;
             [photoListArr addObject:photoModel];
         }
         if (i == fetchResult.count-1) {
-            if (PHPhotoListBlock) {
-                PHPhotoListBlock([photoListArr copy]);
-            }
+            
+            return [photoListArr copy];
         }
     }
+    return @[];
 }
 
 @end
