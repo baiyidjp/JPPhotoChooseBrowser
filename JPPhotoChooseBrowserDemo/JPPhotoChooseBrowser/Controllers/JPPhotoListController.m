@@ -111,7 +111,7 @@
     sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, JP_KMARGIN, 60, 30)];
     [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sendBtn setBackgroundColor:[UIColor colorWithRed:0.000 green:0.411 blue:0.000 alpha:1.000]];
+    [sendBtn setBackgroundColor:[UIColor colorWithRed:31/255.0 green:185/255.0 blue:34/255.0 alpha:1.000]];
     [sendBtn.titleLabel setFont:JP_FONTSIZE(15)];
     [sendBtn addTarget:self action:@selector(sendPhoto) forControlEvents:UIControlEventTouchUpInside];
     sendBtn.layer.cornerRadius = 3;

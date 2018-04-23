@@ -11,24 +11,16 @@
 
 @interface JPPhotoGroupModel : NSObject
 
-/**
- *  组名
- */
+/** 相册组名 */
 @property (nonatomic , copy) NSString *groupName;
 
-/**
- *  缩略图
- */
+/** 相册组缩略图 */
 @property (nonatomic , strong) UIImage *thumbImage;
 
-/**
- *  组里面的图片个数
- */
+/** 单个相册图片总数 */
 @property (nonatomic , assign) NSInteger assetsCount;
 
-/**
- *  类型 : Saved Photos...
- */
+/** 相册的类型 Saved Photos... */
 @property (nonatomic , copy) NSString *type;
 
 /** PHotoKit group */

@@ -25,7 +25,7 @@ typedef void(^GetFullScreenImageDataBlock)(NSData *fullScreenImageData);
 - (void)jp_ThumbImageWithBlock:(GetThumbImageBlock)GetThumbImageBlock;
 
 /** 获取屏幕大小的原图 */
-- (void)jp_FullScreenImageWithBlock:(GetFullScreenImageBlock)GetFullScreenImageBlock;//适应屏幕的原图
+- (void)jp_FullScreenImageWithBlock:(GetFullScreenImageBlock)GetFullScreenImageBlock;
 
 /** 原图的本地路径 */
 @property(nonatomic,strong) NSString *originalImageFileURL;
@@ -33,20 +33,17 @@ typedef void(^GetFullScreenImageDataBlock)(NSData *fullScreenImageData);
 @property(nonatomic,strong) NSData *originalImageData;
 /** 原图片的大小 */
 @property(nonatomic,assign) CGFloat originalImageSize;
-
 /** 获取是否是视频类型, Default = false */
 @property (assign,nonatomic) BOOL isVideoType;
+/** 是否显示原图(后续发送的时候判断是否发送原图) */
+@property(nonatomic,assign)BOOL isShowFullImage;
+/** 获取视频的时长 */
+- (NSString *)videoTime;
+
 /** 是否被选中 */
 @property(nonatomic,assign)BOOL isSelect;
 /** 选中的顺序 */
 @property(nonatomic,assign) NSInteger chooseIndex;
-
-/** 是否显示原图(后续发送的时候判断是否发送原图) */
-@property(nonatomic,assign)BOOL isShowFullImage;
-
-/** 获取视频的时长 */
-- (NSString *)videoTime;
-
 /** 当前点击的indexPath */
 @property(nonatomic,strong)NSIndexPath *indexPath;
 

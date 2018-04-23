@@ -31,7 +31,9 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
 - (void)setPhAsset:(PHAsset *)phAsset {
     
     _phAsset = phAsset;
-
+    
+    //图片的属性
+    [self getOriginalImageSizeWithAsset:phAsset];
 }
 
 #pragma mark - 缩略图相关
