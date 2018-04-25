@@ -3,7 +3,7 @@
 
 ![1-相册列表和相片列表](https://raw.githubusercontent.com/baiyidjp/JPPhotoChooseBrowserDemo/master/JPPhotoChooseBrowserDemo/Image/1%E7%9B%B8%E5%86%8C%E5%88%97%E8%A1%A8%E5%92%8C%E7%9B%B8%E7%89%87%E5%88%97%E8%A1%A8.gif)
 
-![2-相片的点击选择](https://raw.githubusercontent.com/baiyidjp/JPPhotoChooseBrowserDemo/master/JPPhotoChooseBrowserDemo/Image/2%E7%9B%B8%E7%89%87%E5%88%97%E8%A1%A8%E7%9A%84%E7%82%B9%E5%87%BB%E9%80%89%E6%8B%A9.giff)
+![2-相片的点击选择](https://raw.githubusercontent.com/baiyidjp/JPPhotoChooseBrowserDemo/master/JPPhotoChooseBrowserDemo/Image/2%E7%9B%B8%E7%89%87%E5%88%97%E8%A1%A8%E7%9A%84%E7%82%B9%E5%87%BB%E9%80%89%E6%8B%A9.gif)
 
 ![3-全屏预览](https://github.com/baiyidjp/JPPhotoChooseBrowserDemo/blob/master/JPPhotoChooseBrowserDemo/Image/3%E5%85%A8%E5%B1%8F%E9%A2%84%E8%A7%88.gif?raw=true)
 
