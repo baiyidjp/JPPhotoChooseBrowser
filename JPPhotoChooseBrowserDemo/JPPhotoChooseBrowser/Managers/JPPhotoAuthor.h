@@ -29,4 +29,12 @@ typedef void(^CheckFailure)(NSString *message);
  */
 + (void)checkCameraAuthorSuccess:(CheckSuccess)success Failure:(CheckFailure)failure;
 
+/**
+ 检查保存相册权限
+ 
+ @param success 已授权
+ @param failure 未授权
+ */
++ (void)checkSavedPhotoAuthorSuccess:(CheckSuccess)success Failure:(CheckFailure)failure;
+
 @end
