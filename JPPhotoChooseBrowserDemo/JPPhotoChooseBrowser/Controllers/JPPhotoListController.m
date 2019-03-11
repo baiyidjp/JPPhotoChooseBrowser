@@ -20,31 +20,30 @@
 #define ROW_COUNT 4
 #define PHOTOCELL_ID @"JPPhotoCollectionViewCell"
 @interface JPPhotoListController ()<UICollectionViewDelegate,UICollectionViewDataSource,JPPhotoCollectionViewCellDelegate,PHPhotoLibraryChangeObserver>
-@property(nonatomic,strong)NSMutableArray *photoDataArray;
-@property(nonatomic,strong)NSMutableArray *seletedPhotoArray;
-@property(nonatomic,strong)NSMutableArray *seletedPhotoIndexPathArray;
-/** item h */
-@property(nonatomic,assign) CGSize itemSize;
-
-@property (nonatomic, strong) PHCachingImageManager *imageManager;
-/** previousPreheatRect */
-@property(nonatomic,assign) CGRect previousPreheatRect;
-
-/** assetsFetchResults */
-@property(nonatomic,strong) PHFetchResult *assetsFetchResults;
-
-@property(nonatomic,strong) PHAssetCollection *assetCollection;
 
 /** collectionView */
 @property(nonatomic,strong) UICollectionView *collectionView;
+/** cache manager */
+@property(nonatomic,strong) PHCachingImageManager *imageManager;
+
+/** item size */
+@property(nonatomic,assign) CGSize itemSize;
+/** previousPreheatRect */
+@property(nonatomic,assign) CGRect previousPreheatRect;
+
+/** assetsFetchResults photo assets */
+@property(nonatomic,strong) PHFetchResult *assetsFetchResults;
+/** photoModels */
+@property(nonatomic,strong) NSMutableArray *photoDataArray;
+/** selectedPhotoModels */
+@property(nonatomic,strong) NSMutableArray *seletedPhotoArray;
+/** selectedIndexpaths */
+@property(nonatomic,strong) NSMutableArray *seletedPhotoIndexPathArray;
 
 @end
 
 @implementation JPPhotoListController
-{
-    UIButton            *preViewBtn;
-    UIButton            *sendBtn;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -59,27 +58,80 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:cancleBtn];
     self.navigationItem.rightBarButtonItem = item;
     
-    [self setCollectionView];
-    
-//    NSArray *photoList = [[JPPhotoKitManager sharedPhotoKitManager] jp_GetPhotoListWithModel:self.groupModel];
-//    [self.photoDataArray addObjectsFromArray:photoList];
-    
-    
-    self.imageManager = [[PHCachingImageManager alloc] init];
+    [self p_SetUI];
     
     [self resetCachedAssets];
     
+    [self p_SetDefaultData];
+
+}
+
+- (void)dealloc {
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Begin caching assets in and around collection view's visible rect.
+    [self updateCachedAssets];
+}
+
+- (void)p_SetUI{
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    layout.minimumLineSpacing = 5;
+    layout.minimumInteritemSpacing = 5;
+    CGFloat itemWH = (JP_SCREENWIDTH - (ROW_COUNT+1)*JP_KMARGIN/2)/ROW_COUNT;
+    layout.itemSize = CGSizeMake(itemWH, itemWH);
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(JP_KMARGIN/2, JP_KNAVHEIGHT+JP_KMARGIN/2, JP_SCREENWIDTH-JP_KMARGIN, JP_SCREENHEIGHT-JP_KNAVHEIGHT-JP_TAB_BAR_HEIGHT-JP_KMARGIN-JP_HOME_INDICATOR_HEIGHT) collectionViewLayout:layout];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    collectionView.backgroundColor = [UIColor whiteColor];
+    [collectionView registerClass:[JPPhotoCollectionViewCell class] forCellWithReuseIdentifier:PHOTOCELL_ID];
+    collectionView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:collectionView];
+    self.collectionView = collectionView;
+    self.itemSize = CGSizeMake(itemWH, itemWH);
+    
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, JP_SCREENHEIGHT-JP_TAB_BAR_HEIGHT, JP_SCREENWIDTH, JP_TAB_BAR_HEIGHT)];
+    bottomView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:bottomView];
+
+    UIButton *preViewBtn = [[UIButton alloc]initWithFrame:CGRectMake(JP_KMARGIN, JP_KMARGIN+JP_KMARGIN/2, 40, 20)];
+    [preViewBtn setTitle:@"预览" forState:UIControlStateNormal];
+    [preViewBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [preViewBtn.titleLabel setFont:JP_FONTSIZE(15)];
+    [preViewBtn addTarget:self action:@selector(p_ClickPreViewBtn) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:preViewBtn];
+
+    UIButton *sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, JP_KMARGIN, 60, 30)];
+    [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [sendBtn setBackgroundColor:[UIColor colorWithRed:31/255.0 green:185/255.0 blue:34/255.0 alpha:1.000]];
+    [sendBtn.titleLabel setFont:JP_FONTSIZE(15)];
+    [sendBtn addTarget:self action:@selector(p_ClickSendPhoto) forControlEvents:UIControlEventTouchUpInside];
+    sendBtn.layer.cornerRadius = 3;
+    sendBtn.layer.masksToBounds = YES;
+    [bottomView addSubview:sendBtn];
+}
+
+#pragma mark - set default data
+- (void)p_SetDefaultData {
+    
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
     
-    self.assetCollection = self.groupModel.assetCollection;
-    if (![self.assetCollection isKindOfClass:[PHAssetCollection class]]) {
+    PHAssetCollection *assetCollection = self.groupModel.assetCollection;
+    if (![assetCollection isKindOfClass:[PHAssetCollection class]]) {
         return;
     }
     
-    // Configure the AAPLAssetGridViewController with the asset collection.
+    // Configure the asset collection.
     PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
     fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-    PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsInAssetCollection:self.assetCollection options:fetchOptions];
+    PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:fetchOptions];
     self.assetsFetchResults = assetsFetchResult;
     
     for (NSInteger i = 0; i < assetsFetchResult.count; i++) {
@@ -91,18 +143,46 @@
         photoModel.imageManager = self.imageManager;
         [self.photoDataArray addObject:photoModel];
     }
-
-}
-
-- (void)dealloc {
-    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
 }
 
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+#pragma mark UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    // Begin caching assets in and around collection view's visible rect.
+    return self.photoDataArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    JPPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTOCELL_ID forIndexPath:indexPath];
+    
+    cell.photoModel = [self.photoDataArray objectAtIndex:indexPath.item];
+
+    cell.delegate = self;
+    
+    return cell;
+}
+
+#pragma mark UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    JPScreenPhotoController *screenPhotoCtrl = [[JPScreenPhotoController alloc]init];
+    screenPhotoCtrl.seletedPhotoArray = self.seletedPhotoArray;
+    screenPhotoCtrl.seletedPhotoIndexPathArray = self.seletedPhotoIndexPathArray;
+    screenPhotoCtrl.photoDataArray = self.photoDataArray;
+    screenPhotoCtrl.currentIndexPath = indexPath;
+    screenPhotoCtrl.maxImageCount = self.maxImageCount;
+    screenPhotoCtrl.isPre = NO;
+    [screenPhotoCtrl setSelectedChooseBtn:^(NSArray *indexPaths) {
+        [collectionView reloadItemsAtIndexPaths:indexPaths];
+    }];
+    [self.navigationController pushViewController:screenPhotoCtrl animated:YES];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Update cached assets for the new visible area.
     [self updateCachedAssets];
 }
 
@@ -152,13 +232,6 @@
         
         [self resetCachedAssets];
     });
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // Update cached assets for the new visible area.
-    [self updateCachedAssets];
 }
 
 #pragma mark - Asset Caching
@@ -260,111 +333,6 @@
     return assets;
 }
 
-- (void)clickCancleBtn{
-    
-    [[JPPhotoManager sharedPhotoManager] jp_CancelChoosePhoto];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (NSMutableArray *)photoDataArray{
-    
-    if (!_photoDataArray) {
-        _photoDataArray = [NSMutableArray array];
-    }
-    return _photoDataArray;
-}
-
-- (NSMutableArray *)seletedPhotoArray{
-    
-    if (!_seletedPhotoArray) {
-        
-        _seletedPhotoArray = [NSMutableArray array];
-    }
-    return _seletedPhotoArray;
-}
-
-- (NSMutableArray *)seletedPhotoIndexPathArray{
-    
-    if (!_seletedPhotoIndexPathArray) {
-        
-        _seletedPhotoIndexPathArray = [NSMutableArray array];
-    }
-    return _seletedPhotoIndexPathArray;
-}
-
-- (void)setCollectionView{
-    
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.minimumLineSpacing = 5;
-    layout.minimumInteritemSpacing = 5;
-    CGFloat itemWH = (JP_SCREENWIDTH - (ROW_COUNT+1)*JP_KMARGIN/2)/ROW_COUNT;
-    layout.itemSize = CGSizeMake(itemWH, itemWH);
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(JP_KMARGIN/2, JP_KNAVHEIGHT+JP_KMARGIN/2, JP_SCREENWIDTH-JP_KMARGIN, JP_SCREENHEIGHT-JP_KNAVHEIGHT-JP_TAB_BAR_HEIGHT-JP_KMARGIN-JP_HOME_INDICATOR_HEIGHT) collectionViewLayout:layout];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
-    collectionView.backgroundColor = [UIColor whiteColor];
-    [collectionView registerClass:[JPPhotoCollectionViewCell class] forCellWithReuseIdentifier:PHOTOCELL_ID];
-    collectionView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:collectionView];
-    self.collectionView = collectionView;
-    self.itemSize = CGSizeMake(itemWH, itemWH);
-    
-    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, JP_SCREENHEIGHT-JP_TAB_BAR_HEIGHT, JP_SCREENWIDTH, JP_TAB_BAR_HEIGHT)];
-    bottomView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:bottomView];
-
-    preViewBtn = [[UIButton alloc]initWithFrame:CGRectMake(JP_KMARGIN, JP_KMARGIN+JP_KMARGIN/2, 40, 20)];
-    [preViewBtn setTitle:@"预览" forState:UIControlStateNormal];
-    [preViewBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-    [preViewBtn.titleLabel setFont:JP_FONTSIZE(15)];
-    [preViewBtn addTarget:self action:@selector(preViewBtn) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:preViewBtn];
-
-    sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(bottomView.jp_w-JP_KMARGIN-60, JP_KMARGIN, 60, 30)];
-    [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
-    [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sendBtn setBackgroundColor:[UIColor colorWithRed:31/255.0 green:185/255.0 blue:34/255.0 alpha:1.000]];
-    [sendBtn.titleLabel setFont:JP_FONTSIZE(15)];
-    [sendBtn addTarget:self action:@selector(sendPhoto) forControlEvents:UIControlEventTouchUpInside];
-    sendBtn.layer.cornerRadius = 3;
-    sendBtn.layer.masksToBounds = YES;
-    [bottomView addSubview:sendBtn];
-
-}
-
-#pragma mark UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
-    return self.assetsFetchResults.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    JPPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PHOTOCELL_ID forIndexPath:indexPath];
-    
-    cell.photoModel = [self.photoDataArray objectAtIndex:indexPath.item];
-
-    cell.delegate = self;
-    
-    return cell;
-}
-
-#pragma mark UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    JPScreenPhotoController *screenPhotoCtrl = [[JPScreenPhotoController alloc]init];
-    screenPhotoCtrl.seletedPhotoArray = self.seletedPhotoArray;
-    screenPhotoCtrl.seletedPhotoIndexPathArray = self.seletedPhotoIndexPathArray;
-    screenPhotoCtrl.photoDataArray = self.photoDataArray;
-    screenPhotoCtrl.currentIndexPath = indexPath;
-    screenPhotoCtrl.maxImageCount = self.maxImageCount;
-    screenPhotoCtrl.isPre = NO;
-    [screenPhotoCtrl setSelectedChooseBtn:^(NSArray *indexPaths) {
-        [collectionView reloadItemsAtIndexPaths:indexPaths];
-    }];
-    [self.navigationController pushViewController:screenPhotoCtrl animated:YES];
-}
-
 #pragma mark 点击选中按钮的代理
 - (void)thumbImageSeletedChooseIndexPath:(NSIndexPath *)indexPath selectedBtn:(UIButton *)selectedBtn {
 
@@ -407,7 +375,7 @@
 }
 
 #pragma mark 预览
-- (void)preViewBtn{
+- (void)p_ClickPreViewBtn{
 
     if (!self.seletedPhotoArray.count) {
         UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"请最少选择一张照片" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -429,7 +397,9 @@
     [self.navigationController pushViewController:screenPhotoCtrl animated:YES];
 }
 
-- (void)sendPhoto{
+#pragma mark - send photo
+
+- (void)p_ClickSendPhoto{
 
     if (!self.seletedPhotoArray.count) {
         UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"请最少选择一张照片" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -444,6 +414,49 @@
         }
 
     }];
+}
+
+- (void)clickCancleBtn{
+    
+    [[JPPhotoManager sharedPhotoManager] jp_CancelChoosePhoto];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - lazy init
+
+- (NSMutableArray *)photoDataArray{
+    
+    if (!_photoDataArray) {
+        _photoDataArray = [NSMutableArray array];
+    }
+    return _photoDataArray;
+}
+
+- (NSMutableArray *)seletedPhotoArray{
+    
+    if (!_seletedPhotoArray) {
+        
+        _seletedPhotoArray = [NSMutableArray array];
+    }
+    return _seletedPhotoArray;
+}
+
+- (NSMutableArray *)seletedPhotoIndexPathArray{
+    
+    if (!_seletedPhotoIndexPathArray) {
+        
+        _seletedPhotoIndexPathArray = [NSMutableArray array];
+    }
+    return _seletedPhotoIndexPathArray;
+}
+
+- (PHCachingImageManager *)imageManager{
+    
+    if (!_imageManager) {
+        
+        _imageManager = [[PHCachingImageManager alloc] init];;
+    }
+    return _imageManager;
 }
 
 @end
