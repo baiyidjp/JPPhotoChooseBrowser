@@ -12,11 +12,11 @@
 
 @interface JPPhotoCollectionViewCell()
 
-@property(nonatomic,strong)UIImageView *photoImage;
-@property(nonatomic,strong)UIButton *selectBtn;
-@property(nonatomic,strong)UIView *bottomView;
-@property(nonatomic,strong)UIImageView *videoImage;
-@property(nonatomic,strong)UILabel *videoTime;
+@property(nonatomic,strong) UIImageView *photoImage;
+@property(nonatomic,strong) UIButton *selectBtn;
+@property(nonatomic,strong) UIView *bottomView;
+@property(nonatomic,strong) UIImageView *videoImage;
+@property(nonatomic,strong) UILabel *videoTime;
 
 @end
 

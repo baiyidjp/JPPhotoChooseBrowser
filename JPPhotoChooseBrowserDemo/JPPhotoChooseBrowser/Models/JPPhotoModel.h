@@ -46,5 +46,7 @@ typedef void(^GetFullScreenImageDataBlock)(NSData *fullScreenImageData);
 @property(nonatomic,assign) NSInteger chooseIndex;
 /** 当前点击的indexPath */
 @property(nonatomic,strong)NSIndexPath *indexPath;
+/** 相片的缓存管理 */
+@property(nonatomic,strong) PHCachingImageManager *imageManager;
 
 @end

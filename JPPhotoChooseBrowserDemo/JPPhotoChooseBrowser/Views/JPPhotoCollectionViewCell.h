@@ -21,5 +21,4 @@
 /** delegate */
 @property(nonatomic,weak) id<JPPhotoCollectionViewCellDelegate> delegate;
 
-
 @end

@@ -33,7 +33,7 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
     _phAsset = phAsset;
     
     //图片的属性
-    [self getOriginalImageSizeWithAsset:phAsset];
+//    [self getOriginalImageSizeWithAsset:phAsset];
 }
 
 #pragma mark - 缩略图相关
@@ -51,8 +51,8 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
     CGFloat screenScale = [UIScreen mainScreen].scale;
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
-    [[JPPhotoModel sharedPHImageManager] requestImageForAsset:self.phAsset targetSize:CGSizeMake(itemWH*screenScale, itemWH*screenScale) contentMode:PHImageContentModeAspectFill options:options resultHandler:^(UIImage *result, NSDictionary *info) {
-        NSLog(@"1-----缩略图");
+    [self.imageManager requestImageForAsset:self.phAsset targetSize:CGSizeMake(itemWH*screenScale, itemWH*screenScale) contentMode:PHImageContentModeAspectFill options:options resultHandler:^(UIImage *result, NSDictionary *info) {
+//        NSLog(@"1-----缩略图");
         GetThumbImageBlock(result);
         //此处设置关联对象
         objc_setAssociatedObject(self, kThumbImageKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -116,10 +116,13 @@ const char * kOriginalImageSize = "kOriginalImageSize";//原图大小
     
     [[JPPhotoModel sharedPHImageManager] requestImageDataForAsset:phAsset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
 
-        CGFloat dataSize = imageData.length/(1024*1024.0);
-        objc_setAssociatedObject(self, kOriginalImageSize, [NSString stringWithFormat:@"%f",dataSize], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        objc_setAssociatedObject(self, kOriginalImageData, imageData, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        objc_setAssociatedObject(self, kPHImageFileURLKey, [info objectForKey:@"PHImageFileURLKey"], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        if (imageData) {
+            
+            CGFloat dataSize = imageData.length/(1024*1024.0);
+            objc_setAssociatedObject(self, kOriginalImageSize, [NSString stringWithFormat:@"%f",dataSize], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            objc_setAssociatedObject(self, kOriginalImageData, imageData, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            objc_setAssociatedObject(self, kPHImageFileURLKey, [info objectForKey:@"PHImageFileURLKey"], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
     }];
 }
 

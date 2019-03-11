@@ -10,6 +10,17 @@
 #import "UIView+JP_Frame.h"
 #import "BaseConst.h"
 
+@interface JPPhotoGroupCell ()
+
+/** 缩略图 */
+@property(nonatomic,strong)UIImageView *thumbImage;
+/** 相册组名 */
+@property(nonatomic,strong)UILabel *groupName;
+/** 相册总数 */
+@property(nonatomic,strong)UILabel *imageCount;
+
+@end
+
 @implementation JPPhotoGroupCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{

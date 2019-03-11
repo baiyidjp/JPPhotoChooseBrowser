@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80E7031223271C800EA66AB /* NSIndexSet+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B80E702E223271C800EA66AB /* NSIndexSet+Convenience.m */; };
+		B80E7032223271C800EA66AB /* UICollectionView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B80E7030223271C800EA66AB /* UICollectionView+Convenience.m */; };
 		F50505431FAC91E90041726C /* JPPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F50505421FAC91E90041726C /* JPPhotoManager.m */; };
 		F5DA5E5120513C19000395F4 /* JPShowBigImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA5E4F20513C18000395F4 /* JPShowBigImageView.m */; };
 		F5E050B01F9E10C100190698 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E050AF1F9E10C100190698 /* AppDelegate.m */; };
@@ -31,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B80E702D223271C800EA66AB /* UICollectionView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Convenience.h"; sourceTree = "<group>"; };
+		B80E702E223271C800EA66AB /* NSIndexSet+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Convenience.m"; sourceTree = "<group>"; };
+		B80E702F223271C800EA66AB /* NSIndexSet+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Convenience.h"; sourceTree = "<group>"; };
+		B80E7030223271C800EA66AB /* UICollectionView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Convenience.m"; sourceTree = "<group>"; };
 		F50505411FAC91D70041726C /* BaseConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseConst.h; sourceTree = "<group>"; };
 		F50505421FAC91E90041726C /* JPPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPhotoManager.m; sourceTree = "<group>"; };
 		F50505441FAC926C0041726C /* JPPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPhotoManager.h; sourceTree = "<group>"; };
@@ -144,10 +150,10 @@
 				F5E050CB1F9E10D600190698 /* JPPhotoGroupListController.m */,
 				F5E050CC1F9E10D600190698 /* JPPhotoListController.h */,
 				F5E050CD1F9E10D600190698 /* JPPhotoListController.m */,
-				F5E050CE1F9E10D600190698 /* JPPhotoShowController.h */,
-				F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */,
 				F5E050D01F9E10D600190698 /* JPScreenPhotoController.h */,
 				F5E050D11F9E10D600190698 /* JPScreenPhotoController.m */,
+				F5E050CE1F9E10D600190698 /* JPPhotoShowController.h */,
+				F5E050CF1F9E10D600190698 /* JPPhotoShowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +177,10 @@
 		F5E050D71F9E10D600190698 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B80E702F223271C800EA66AB /* NSIndexSet+Convenience.h */,
+				B80E702E223271C800EA66AB /* NSIndexSet+Convenience.m */,
+				B80E702D223271C800EA66AB /* UICollectionView+Convenience.h */,
+				B80E7030223271C800EA66AB /* UICollectionView+Convenience.m */,
 				F5E050D81F9E10D600190698 /* JPPhotoGroupModel.h */,
 				F5E050D91F9E10D600190698 /* JPPhotoGroupModel.m */,
 				F5E050DA1F9E10D600190698 /* JPPhotoModel.h */,
@@ -269,7 +279,9 @@
 				F5E49BCC2089EAC400DD56AA /* JPPhotoAuthor.m in Sources */,
 				F5E050EA1F9E11B900190698 /* JPScreenPhotoController.m in Sources */,
 				F5E050EB1F9E11B900190698 /* JPPhotoKitManager.m in Sources */,
+				B80E7032223271C800EA66AB /* UICollectionView+Convenience.m in Sources */,
 				F5E050EC1F9E11B900190698 /* JPPhotoGroupModel.m in Sources */,
+				B80E7031223271C800EA66AB /* NSIndexSet+Convenience.m in Sources */,
 				F5E050ED1F9E11B900190698 /* JPPhotoModel.m in Sources */,
 				F5E050EE1F9E11B900190698 /* JPPhotoCollectionViewCell.m in Sources */,
 				F5E49BBC2088B2EC00DD56AA /* JPPhotoOperation.m in Sources */,
@@ -415,11 +427,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U37X4645WQ;
+				DEVELOPMENT_TEAM = 33M7V22L6Y;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JPPhotoChooseBrowserDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = JPPhotoChooseBrowserDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.djp.JPPhotoChooseBrowserDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stey.app.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -430,11 +442,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U37X4645WQ;
+				DEVELOPMENT_TEAM = 33M7V22L6Y;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JPPhotoChooseBrowserDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = JPPhotoChooseBrowserDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.djp.JPPhotoChooseBrowserDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stey.app.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

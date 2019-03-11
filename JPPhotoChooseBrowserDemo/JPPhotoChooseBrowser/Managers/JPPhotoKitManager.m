@@ -13,11 +13,15 @@ static JPPhotoKitManager *photoKitManager = nil;
 
 @implementation JPPhotoKitManager
 
+//信号量 用来加锁
+dispatch_semaphore_t _semaphoreRequest;
+
 + (JPPhotoKitManager *)sharedPhotoKitManager{
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         photoKitManager = [[JPPhotoKitManager alloc]init];
+        _semaphoreRequest = dispatch_semaphore_create(1);
     });
     
     return photoKitManager;
